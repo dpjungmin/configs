@@ -1,0 +1,39 @@
+[user]
+    name = David Park
+    email = dpjungmin@gmail.com
+
+[alias]
+    c = commit
+    s = status
+    st = status
+    l = log --oneline
+    L = log --oneline --graph
+    last = log -1 HEAD
+    r = rebase
+    ri = rebase -i
+    rc = rebase --continue
+    root = rev-parse --show-toplevel
+    path = rev-parse --show-prefix
+    dft = difftool
+
+[init]
+    defaultBranch = main
+
+[submodule]
+    recurse = true
+
+[fetch]
+    prune = true
+
+[pull]
+    ff = only
+
+[push]
+    recurseSubmodules = no
+
+[color]
+    ui = auto
+
+[core]
+    editor = nvim
+    pager = delta

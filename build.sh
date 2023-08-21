@@ -36,11 +36,15 @@ init() {
 }
 
 install_packages() {
-  local core_packages=(sddm dunst pipewire polkit-kde-agent qt5-wayland qt6-wayland)
-  local apps=(hyprpaper fish neovim)
-
-  yay -S ${core_packages[@]}
-  yay -S ${apps[@]}
+  sudo yay -S sddm dunst pipewire polkit-kde-agent qt5-wayland qt6-wayland
+  sudo yay -S python python-pip lua clang nodejs typescript llvm
+  sudo yay -S lua-language-server
+  sudo yay -S stylua
+  sudo yay -S git git-lfs
+  sudo yay -S firefox
+  sudo yay -S hyprpaper wofi thunar grim slurp swappy
+  sudo yay -S fish starship zoxide neovim
+  sudo yay -S exa bat ripgrep fd bear git-delta
 }
 
 setup_configurations() {
@@ -48,8 +52,27 @@ setup_configurations() {
     ln -s $(pwd)/hypr $HOME/.config/hypr
   fi
 
-  if [[ ! -d "$HOME/.gitconfig" ]]; then
+  if [[ ! -d "$HOME/.config/eww" ]]; then
+    ln -s $(pwd)/eww $HOME/.config/eww
+  fi
+
+  if [[ ! -d "$HOME/.config/wezterm" ]]; then
+    ln -s $(pwd)/wezterm $HOME/.config/wezterm
+  fi
+
+  if [[ ! -f "$HOME/.gitconfig" ]]; then
     ln -s $(pwd)/.gitconfig $HOME/.gitconfig
+  fi
+
+  rm $HOME/.config/fish/config.fish
+  ln -s $(pwd)/config.fish $HOME/.config/fish/config.fish
+
+  if [[ ! -f "$HOME/.config/starship.toml" ]]; then
+    ln -s $(pwd)/starship.toml $HOME/.config/starship.toml
+  fi
+
+  if [[ ! -d "$HOME/.config/nvim" ]]; then
+    ln -s $(pwd)/nvim $HOME/.config/nvim
   fi
 }
 

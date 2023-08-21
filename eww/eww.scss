@@ -1,0 +1,118 @@
+* {
+  all: unset;
+}
+
+.status-bar {
+  font-size: 1.4em;
+  font-family: "Lekton Nerd Font";
+  padding-left: 50px;
+  padding-right: 20px;
+  color: #ffffff;
+  background-color: rgba(42, 46, 51, 0.5);
+  border-radius: 4px;
+}
+
+.left {
+  padding: 5px 0;
+
+  .workspaces {
+    margin-right: 50px;
+
+    button {
+      font-size: 0.7em;
+      border: 1px solid #636e7b;
+      padding: 0 17px;
+
+      &:not(:last-child) {
+        margin-right: 7px;
+      }
+
+      &.active {
+        font-weight: bold;
+        color: #30dff3;
+        border: 1px solid #30dff3;
+      }
+
+      &.inactive {
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+.right {
+  .dropbox {
+    font-family: monospace;
+    font-size: .75em;
+
+    .off {
+      color: #ffffff;
+      background-color: #b84d51;
+      border-radius: 4px;
+      margin: 8px 0;
+      padding: 0 15px;
+
+      &:hover {
+        background-color: #a84d51;
+      }
+    }
+
+    .on {
+      color: #7fbfb4;
+    }
+  }
+
+  .bluetooth {
+    font-family: monospace;
+    font-size: .8em;
+
+    .connected {
+      padding: 0 20px;
+    }
+
+    .disconnected {
+    }
+  }
+
+  .wifi {
+    font-family: monospace;
+    font-size: .8em;
+    padding: 0 20px;
+
+    .connected {
+    }
+
+    .disconnected {
+      background-size: cover;
+      background-image: url('images/no-internet.png');
+      background-position: center;
+      min-height: 55px;
+      min-width: 50px;
+    }
+  }
+
+  .battery {
+    color: #8ac361;
+    font-family: monospace;
+    font-size: .8em;
+    padding: 0 20px;
+
+    .charging {
+        color: #f0c239;
+    }
+  }
+
+  .time {
+    font-family: monospace;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 0 20px;
+
+    .hour {
+      margin-right: 5px;
+    }
+
+    .minute {
+    }
+  }
+}

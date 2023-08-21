@@ -1,0 +1,112 @@
+# vim: foldmethod=marker foldlevel=0
+
+# ps {{{
+snippet ps "PS template" b
+#![allow(unused)]
+
+mod scanner {
+    use std::{
+        fmt::Debug,
+        io::BufRead,
+        mem,
+        str::{self, FromStr, SplitAsciiWhitespace},
+    };
+
+    pub struct UnsafeScanner<R> {
+        reader: R,
+        tokens: SplitAsciiWhitespace<'static>,
+        bytes: Vec<u8>,
+    }
+
+    impl<R: BufRead> UnsafeScanner<R> {
+        pub fn new(reader: R) -> Self {
+            Self {
+                reader,
+                tokens: "".split_ascii_whitespace(),
+                bytes: Vec::new(),
+            }
+        }
+
+        pub fn read<T>(&mut self) -> T
+        where
+            T: FromStr,
+            <T as FromStr>::Err: Debug,
+        {
+            loop {
+                if let Some(token) = self.tokens.next() {
+                    return token.parse().unwrap();
+                }
+                let line = self.read_line();
+                self.tokens = unsafe { mem::transmute(line.split_ascii_whitespace()) }
+            }
+        }
+
+        pub fn read_line(&mut self) -> &str {
+            self.bytes.clear();
+            self.reader.read_until(b'\n', &mut self.bytes).unwrap();
+            unsafe { std::str::from_utf8_unchecked(&self.bytes) }
+        }
+    }
+}
+
+mod solution {
+    use super::scanner::UnsafeScanner;
+    use std::{
+        cmp::{Ordering, Reverse},
+        collections::{BTreeMap, BTreeSet, BinaryHeap, HashMap, HashSet, LinkedList, VecDeque},
+        io::{self, BufWriter, Write},
+    };
+
+    type Result<T> = std::result::Result<T, Box<dyn std::error::Error>>;
+
+    pub fn main() -> Result<()> {
+        let (stdin, stdout) = (io::stdin(), io::stdout());
+        let mut input = UnsafeScanner::new(stdin.lock());
+        let mut output = BufWriter::new(stdout.lock());
+
+        // let t = input.read::<usize>();
+        // writeln!(output, "{t}")?;
+        ${1:// Add solution here}
+
+        Ok(())
+    }
+}
+
+fn main() {
+    if let Err(err) = solution::main() {
+        eprintln!("{err}");
+        std::process::exit(1);
+    };
+}
+endsnippet
+# }}}
+
+# #[derive(Debug)] {{{
+snippet dd "#[derive(Debug)]" b
+#[derive(Debug)]
+endsnippet
+# }}}
+
+# if let Ok {{{
+snippet ifletok "if let Ok" b
+if let Ok($1) = $2 {
+	$3
+}
+endsnippet
+# }}}
+
+# if let Err {{{
+snippet ifleterr "if let Err" b
+if let Err($1) = $2 {
+	$3
+}
+endsnippet
+# }}}
+
+# let else {{{
+snippet letelse "let else" b
+let $1($2) = $3 else {
+	$4
+};
+endsnippet
+# }}}

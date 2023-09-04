@@ -33,7 +33,7 @@
 (hl! :Structure {:link :StorageClass}) ; struct, union, enum
 (hl! :Special {:fg "#8ac361" :bg none})
 (hl! :SpecialChar {:fg "#ffffff" :bg none})
-(hl! :Tag {:fg "#cad8d2" :bg none})
+(hl! :Tag {:fg "#98c379" :bg none})
 (hl! :SpecialComment {:fg "#9da8a3" :bg none})
 (hl! :Debug {:fg "#cad8d2" :bg none})
 (hl! :Delimiter {:fg "#ecf6f2" :bg none})
@@ -120,16 +120,15 @@
 (hl! :GitSignsDeleteLnVirtLnInline {:link :GitSignsDeleteInline})
 
 ; https://github.com/lukas-reineke/indent-blankline.nvim
-(hl! :IndentBlanklineChar {:fg "#2c2943" :bg none})
-(hl! :IndentBlanklineContextChar {:fg "#2c2943" :bg none})
+(hl! :IndentBlanklineChar {:fg "#393552" :bg none})
 
 ; https://github.com/nvim-telescope/telescope.nvim
-(hl! :TelescopeBorder {:fg "#636e7b" :bg none})
+(hl! :TelescopeBorder {:fg "#6e6a86" :bg none})
 (hl! :TelescopeSelectionCaret {:fg "#30dff3" :bg none})
-(hl! :TelescopeSelection {:fg "#ffffff" :bg "#434846"})
+(hl! :TelescopeSelection {:fg none :bg "#393552"})
 (hl! :TelescopeMultiSelection {:link :TelescopeSelection})
 (hl! :TelescopeMatching {:link :MatchAccent})
-(hl! :TelescopePromptPrefix {:fg "#30dff3" :bg none :style [:bold]})
+(hl! :TelescopePromptPrefix {:fg "#eb6f92" :bg none :style [:bold]})
 (hl! :TelescopePromptNormal {:link :TelescopePromptPrefix})
 
 ; https://github.com/kyazdani42/nvim-tree.lua

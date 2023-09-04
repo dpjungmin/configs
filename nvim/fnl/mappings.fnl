@@ -7,11 +7,13 @@
 (map! [n] :<space>ti :<cmd>IlluminateToggle<cr> {:desc "Globally toggle the pause/resume for vim-illuminate"})
 (map! [n] :<space>n "<cmd>lua require('illuminate').goto_next_reference(true)<cr>" {:desc "Move the cursor to the closest reference after the cursor"})
 (map! [n] :<space>N "<cmd>lua require('illuminate').goto_prev_reference(true)<cr>" {:desc "Move the cursor to the closest reference before the cursor"})
+(map! [n] :gl "<cmd>Flog<cr>" {:desc "Open git commit graph"})
 
 ; High frequency
 (map! [n] :<leader><leader>r
       "<cmd>silent update $MYVIMRC <bar> source $MYVIMRC <bar> call v:lua.vim.notify('Neovim configuration successfully reloaded!', 'info', { 'render': 'default', 'title': 'Neovim' })<cr>"
       {:desc "Update and reload $MYVIMRC"})
+(map! [n] :<space>? :<cmd>Inspect<cr> {:desc "Show all the items at a given buffer position"})
 (map! [n] :<BS> "d0i<BS><space>" {:desc "Turn the word under the cursor into upper case"})
 (map! [n] :<space>R :qq {:desc "Start recording commands in register `q`" :silent false})
 (map! [n] "," "@q" {:desc "Replay register `q`" :silent false})

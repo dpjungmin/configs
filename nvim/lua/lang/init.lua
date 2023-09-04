@@ -160,7 +160,7 @@ lspconfig["tsserver"].setup({
     "typescript.tsx",
   },
   init_options = { "hostInfo", "neovim" },
-  root_dir = (require("lspconfig.util")).root_pattern(
+  root_dir = require("lspconfig.util").root_pattern(
     "package.json",
     "tsconfig.json",
     "jsconfig.json",
@@ -188,6 +188,20 @@ lspconfig["vimls"].setup({
     vimruntime = "",
   },
   single_file_support = true,
+})
+
+lspconfig["astro"].setup({
+  capabilities = capabilities,
+  flags = { debounce_text_changes = 150 },
+  cmd = { "astro-ls", "--stdio" },
+  filetypes = { "astro" },
+  init_options = { typescript = {} },
+  root_dir = require("lspconfig.util").root_pattern(
+    "package.json",
+    "tsconfig.json",
+    "jsconfig.json",
+    ".git"
+  ),
 })
 
 require("lang.clang")

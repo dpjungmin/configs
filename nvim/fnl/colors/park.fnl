@@ -75,7 +75,7 @@
 
 ; Editor
 (hl! :Normal {:fg "#ffffff" :bg none})
-(hl! :NormalNC {:link :Number})
+(hl! :NormalNC {:link :Normal})
 (hl! :Cursor {:fg none :bg "#00ff00"})
 (hl! :Cursor2 {:fg none :bg "#ff0000"})
 (hl! :lCursor {:link :Cursor})

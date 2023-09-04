@@ -78,6 +78,7 @@ return {
         typescriptreact = { require("formatter.filetypes.typescriptreact").prettier },
         css = { require("formatter.filetypes.css").prettier },
         html = { require("formatter.filetypes.html").prettier },
+        astro = { require("formatter.filetypes.javascript").prettier },
         ["*"] = { require("formatter.filetypes.any").remove_trailing_whitespace },
       },
     })

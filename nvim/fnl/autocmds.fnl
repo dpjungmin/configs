@@ -22,6 +22,8 @@
   :puppet
     [["BufNewFile,BufRead" :*.pp "setfiletype puppet"]
      ["BufNewFile,BufRead" :*.pp "set shiftwidth=2 softtabstop=2 filetype=puppet"]]
+  :astro
+    [["BufRead,BufEnter" "*.astro" "set filetype=astro"]]
   :justfile
     [["BufNewFile,BufRead" :justfile "setf make"]]})
 

@@ -22,6 +22,7 @@ return {
   "itchyny/vim-highlighturl",
   "tpope/vim-commentary",
   "jose-elias-alvarez/null-ls.nvim",
+  "wuelnerdotexe/vim-astro",
 
   require("plugins.nvim-lspconfig"),
   require("plugins.nvim-cmp"),

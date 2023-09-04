@@ -1,5 +1,35 @@
 (import-macros {: hl!} :macros)
 
+; foreground = "#e0def4",
+; background = "#232136",
+
+; black = "#393552",
+; red = "#eb6f92",
+; green = "#98c379",
+; yellow = "#f6c177",
+; blue = "#6e90b0",
+; magenta = "#c4a7e7",
+; cyan = "#7bbfb4",
+; white = "#e0def4",
+
+; bright_black = "#6e6a86",
+; bright_red = "#b84d51",
+; bright_green = "#98c379",
+; bright_yellow = "#e58a50",
+; bright_blue = "#56b6c2",
+; bright_magenta = "#c4a7e7",
+; bright_cyan = "#4d7b74",
+; bright_white = "#5a626a",
+
+; accent = "#30dff3",
+; border = "#003366",
+; selection = "#263e47",
+; gradient = {
+; "#232136",
+; "#332136",
+; "#232136",
+; },
+
 (local none :None)
 
 ; Custom

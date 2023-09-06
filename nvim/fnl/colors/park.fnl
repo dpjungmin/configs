@@ -94,7 +94,7 @@
 (hl! :SignColumnSB {:link :SignColumn})
 (hl! :VertSplit {:fg "#444c56" :bg none}) ; the column separating vertically split windows
 (hl! :Title {:fg "#6cb6ff" :bg none :style [:bold]}) ; vim default title
-(hl! :Visual {:fg none :bg "#434846"}) ; visual selection
+(hl! :Visual {:fg none :bg "#263e47"}) ; visual selection
 (hl! :VisualNOS {:link :Visual})
 (hl! :Search {:fg none :bg "#515c6a"})
 (hl! :IncSearch {:fg none :bg "#515c6a" :style [:bold]})
@@ -169,7 +169,7 @@
 (hl! :NvimTreeSpecialFile {:fg "#ffffff" :bg none :style [:underline :bold]})
 
 ; https://github.com/nvim-treesitter/nvim-treesitter-context
-(hl! :TreesitterContext {:fg "#ffffff" :bg "#434846" :style [:bold]})
+(hl! :TreesitterContext {:fg none :bg "#263e47" :style [:bold]})
 
 ; https://github.com/folke/which-key.nvim
 (hl! :WhichKeyBorder {:fg "#aaaaaa" :bg none})

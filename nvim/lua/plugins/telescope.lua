@@ -9,6 +9,7 @@ return {
     { "<space>.", "<cmd>Telescope find_files<cr>", desc = "List files in current directory" },
     { "<space>,", "<cmd>Telescope buffers<cr>", desc = "List open buffers" },
     { "<space>fr", "<cmd>Telescope oldfiles<cr>", desc = "Lists most recently opened files" },
+    { "<leader>R", "<cmd>Telescope resume<cr>", desc = "Lists the results of the previous picker" },
     {
       "<space>g",
       "<cmd>Telescope grep_string<cr>",

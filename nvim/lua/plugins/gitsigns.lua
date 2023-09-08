@@ -116,5 +116,5 @@ end
 
 return {
   "lewis6991/gitsigns.nvim",
-  config = setup(),
+  config = setup,
 }

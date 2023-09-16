@@ -117,7 +117,7 @@
 (hl! :diffNewFile {:fg "#347d39" :bg none})
 (hl! :diffFile {:fg "#316dca" :bg none})
 (hl! :NormalFloat {:fg "#ecf6f2" :bg none})
-(hl! :FloatBorder {:fg "#cad8d2" :bg none})
+(hl! :FloatBorder {:fg "#eb6f92" :bg none})
 (hl! :Directory {:fg "#6cb6ff" :bg ""})
 (hl! :ModeMsg {:fg "#ffffff" :bg none}) ; `showmode` message
 (hl! :MoreMsg {:link :ModeMsg})

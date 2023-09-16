@@ -63,6 +63,11 @@ return {
     { "<space>fh", "<cmd>Telescope help_tags<cr>", desc = "Lists available help tags" },
     { "<space>fH", "<cmd>Telescope highlights<cr>", desc = "Lists available highlights" },
     {
+      "<space>fd",
+      "<cmd>Telescope diagnostics<cr>",
+      desc = "Lists Diagnostics for all open buffers or a specific buffer",
+    },
+    {
       "<space>K",
       "<cmd>Telescope lsp_references<cr>",
       desc = "Lists LSP references for the work under the cursor",
@@ -201,6 +206,19 @@ return {
           },
           layout_strategy = "vertical",
           prompt_prefix = " [highlights] ",
+          prompt_title = "",
+          preview_title = "",
+        },
+        diagnostics = {
+          layout_config = {
+            anchor = "CENTER",
+            prompt_position = "top",
+            mirror = true,
+            width = 0.75,
+            height = 0.75,
+          },
+          layout_strategy = "vertical",
+          prompt_prefix = " (refs) ",
           prompt_title = "",
           preview_title = "",
         },

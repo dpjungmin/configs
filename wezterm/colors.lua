@@ -25,12 +25,12 @@ local palette = {
   bright_white = "#5a626a",
 
   accent = "#30dff3",
-  border = "#003366",
+  border = "#000000",
   selection = "#263e47",
   gradient = {
-    "#232136",
-    "#332136",
-    "#232136",
+    "#2b2539",
+    "#2b2539",
+    "#2b2539",
   },
 }
 
@@ -127,10 +127,10 @@ function module.paint(config)
     button_bg = "none",
     button_hover_fg = "none",
     button_hover_bg = "none",
-    border_left_width = "0.2cell",
-    border_right_width = "0.2cell",
-    border_bottom_height = "0.1cell",
-    border_top_height = "0.1cell",
+    border_left_width = "0.4cell",
+    border_right_width = "0.4cell",
+    border_bottom_height = "0.2cell",
+    border_top_height = "0.2cell",
     border_left_color = palette.border,
     border_right_color = palette.border,
     border_bottom_color = palette.border,

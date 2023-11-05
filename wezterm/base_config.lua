@@ -16,7 +16,7 @@ config.check_for_updates = false
 config.clean_exit_codes = { 130 }
 config.cursor_thickness = "200%"
 config.default_cursor_style = "SteadyBlock"
-config.enable_scroll_bar = true
+config.enable_scroll_bar = false
 config.foreground_text_hsb = {
   hue = 1.0,
   saturation = 1.0,
@@ -38,10 +38,10 @@ config.underline_position = "-5px"
 config.underline_thickness = "200%"
 config.unicode_version = 14
 config.window_padding = {
-  left = "1cell",
-  right = "1cell",
-  top = "0.5cell",
-  bottom = "0.5cell",
+  left = "2cell",
+  right = "2cell",
+  top = "1cell",
+  bottom = "1cell",
 }
 
 return config

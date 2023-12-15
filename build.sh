@@ -5,14 +5,14 @@
 parse_args() {
   while [[ "$#" -gt 0 ]]; do
     case $1 in
-      -c | --config) 
-	setup_configurations
+      -c | --config)
+  setup_configurations
         exit 0
-	;;
-      *) 
+  ;;
+      *)
         echo "invalid argument: $1"
         exit 1
-	;;
+  ;;
     esac
     shift
   done

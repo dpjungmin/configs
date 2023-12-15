@@ -74,7 +74,7 @@
 (hl! :Error {:fg "#e5534b" :bg none :style [:undercurl]})
 
 ; Editor
-(hl! :Normal {:fg "#ffffff" :bg none})
+(hl! :Normal {:fg "#ffffff" :bg "#2b2539"})
 (hl! :NormalNC {:link :Normal})
 (hl! :Cursor {:fg none :bg "#00ff00"})
 (hl! :Cursor2 {:fg none :bg "#ff0000"})

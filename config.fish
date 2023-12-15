@@ -16,6 +16,7 @@ alias gl="git log --oneline"
 alias gL="git log --oneline --graph"
 alias gp="git push origin HEAD"
 alias gfp="git push --force-with-lease origin HEAD"
+alias gw="git worktree"
 
 # Set paths
 set -x PATH $PATH /usr/local/bin

@@ -1,66 +1,36 @@
 (import-macros {: hl!} :macros)
 
-; foreground = "#e0def4",
-; background = "#232136",
-
-; black = "#393552",
-; red = "#eb6f92",
-; green = "#98c379",
-; yellow = "#f6c177",
-; blue = "#6e90b0",
-; magenta = "#c4a7e7",
-; cyan = "#7bbfb4",
-; white = "#e0def4",
-
-; bright_black = "#6e6a86",
-; bright_red = "#b84d51",
-; bright_green = "#98c379",
-; bright_yellow = "#e58a50",
-; bright_blue = "#56b6c2",
-; bright_magenta = "#c4a7e7",
-; bright_cyan = "#4d7b74",
-; bright_white = "#5a626a",
-
-; accent = "#30dff3",
-; border = "#003366",
-; selection = "#263e47",
-; gradient = {
-; "#232136",
-; "#332136",
-; "#232136",
-; },
-
 (local none :None)
 
 ; Custom
 (hl! :YankColor {:fg none :bg "#2ecc71"})
-(hl! :InlayHints {:fg "#30dff3" :bg none})
+(hl! :InlayHints {:fg "#b0c4de" :bg none})
 (hl! :MatchAccent {:fg "#30dff3" :bg none :style [:bold]})
 
 ; Syntax
-(hl! :Comment {:fg "#9da8a3" :bg none})
+(hl! :Comment {:fg "#4a90e2" :bg none})
 (hl! :Constant {:fg "#dcbdfb" :bg none :style [:bold]})
 (hl! :Character {:fg "#ff938a" :bg none}) ; 'c', '\n'
-(hl! :String {:fg "#ff938a" :bg none}) ; "Hello!"
+(hl! :String {:fg "#e9967a" :bg none}) ; "Hello!"
 (hl! :Number {:fg "#c38a61" :bg none}) ; 234, 0xa5
 (hl! :Float {:link :Number}) ; 5.3, 9e10
 (hl! :Identifier {:fg "#cad8d2" :bg none}) ; variable name
-(hl! :Function {:fg "#f69d50" :bg none}) ; function name and methods for classes
-(hl! :Statement {:fg "#8ac361" :bg none}) ; local, struct, let
-(hl! :Keyword {:fg "#8ac361" :bg none :style [:bold]})
-(hl! :Conditional {:fg "#9ac361" :bg none}) ; if-else, switch
+(hl! :Function {:fg "#ff8c00" :bg none}) ; function name and methods for classes
+(hl! :Statement {:fg "#8fbc8f" :bg none}) ; local, struct, let
+(hl! :Keyword {:fg "#9ac361" :bg none :style [:bold]})
+(hl! :Conditional {:fg "#ba55d3" :bg none}) ; if-else, switch
 (hl! :Repeat {:link :Conditional}) ; for, while, do-while
 (hl! :Label {:link :Conditional}) ; case, default
 (hl! :Operator {:fg "#e0f0ef" :bg none}) ; +, -, *
 (hl! :Exception {:fg "#30dff3" :bg none}) ; try, catch, throw
-(hl! :Include {:fg "#9da8a3" :bg none}) ; use, import, include
+(hl! :Include {:fg "#add8e6" :bg none}) ; use, import, include
 (hl! :PreProc {:fg "#cad8d2" :bg none}) ; preprocessor
 (hl! :Define {:fg "#8ac361" :bg none})
 (hl! :Macro {:fg "#f0c239" :bg none})
 (hl! :PreCondit {:fg "#f0c239" :bg none})
 (hl! :Type {:fg "#f0c239" :bg none :style [:bold]}) ; int, long, char
-(hl! :StorageClass {:fg "#8ac361" :bg none}) ; static, register, volatile
-(hl! :Structure {:link :StorageClass}) ; struct, union, enum
+(hl! :StorageClass {:fg "#cd5c5c" :bg none}) ; static, register, volatile
+(hl! :Structure {:fg "#ff6347" :bg none}) ; struct, union, enum
 (hl! :Special {:fg "#8ac361" :bg none})
 (hl! :SpecialChar {:fg "#ffffff" :bg none})
 (hl! :Tag {:fg "#98c379" :bg none})

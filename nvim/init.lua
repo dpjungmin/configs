@@ -1,4 +1,5 @@
-local function init()
+-- Load `lazy` and `hotpot`.
+local function load_initial_dependencies()
   local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
   if not vim.loop.fs_stat(lazy_path) then
@@ -31,6 +32,7 @@ local function init()
   vim.opt.runtimepath:prepend({ lazy_path, hotpot_path })
 end
 
+-- Load configuration written in Fennel.
 local function load_fnl()
   require("hotpot").setup({
     provide_require_fennel = true,
@@ -50,6 +52,7 @@ local function load_fnl()
   require("fnl_main")
 end
 
+-- Load plugins.
 local function load_plugins()
   local plugins = require("plugins")
 
@@ -62,15 +65,9 @@ local function load_plugins()
   })
 end
 
-local function start()
-  load_fnl()
-  load_plugins()
-  require("colors").load("park")
-end
+load_initial_dependencies()
+load_fnl()
+load_plugins()
 
-local function main()
-  init()
-  start()
-end
-
-main()
+-- Load colorscheme.
+require("colors").load("park")

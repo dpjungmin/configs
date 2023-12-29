@@ -1,8 +1,5 @@
 (import-macros {: set! : map!} :macros)
 
-; Leader key
-(set vim.g.mapleader "\\")
-
 ; Plugin
 (map! [n] :<space>ti :<cmd>IlluminateToggle<cr> {:desc "Globally toggle the pause/resume for vim-illuminate"})
 (map! [n] :<space>n "<cmd>lua require('illuminate').goto_next_reference(true)<cr>" {:desc "Move the cursor to the closest reference after the cursor"})
@@ -10,19 +7,10 @@
 (map! [n] :gl "<cmd>Flog<cr>" {:desc "Open git commit graph"})
 
 ; High frequency
-(map! [n] :<leader><leader>r
-      "<cmd>silent update $MYVIMRC <bar> source $MYVIMRC <bar> call v:lua.vim.notify('Neovim configuration successfully reloaded!', 'info', { 'render': 'default', 'title': 'Neovim' })<cr>"
-      {:desc "Update and reload $MYVIMRC"})
-(map! [n] :<space>? :<cmd>Inspect<cr> {:desc "Show all the items at a given buffer position"})
-(map! [n] :<BS> "d0i<BS><space>" {:desc "Turn the word under the cursor into upper case"})
-(map! [n] :<space>R :qq {:desc "Start recording commands in register `q`" :silent false})
-(map! [n] "," "@q" {:desc "Replay register `q`" :silent false})
 (map! [n] :<m-h> "^" {:desc "Go to the start of the line"})
 (map! [n] :<m-l> :g_ {:desc "Go to the end of the line"})
 (map! [n] :<tab> :<cmd>bn<cr> {:desc "Go to the next buffer"})
 (map! [n] :<s-tab> :<cmd>bp<cr> {:desc "Go to the previous buffer"})
-(map! [n] :<leader>ss (.. ":mks! " vim.g.sessiondir "/") {:desc "Make session" :silent false})
-(map! [n] :<leader>so (.. ":so " vim.g.sessiondir "/") {:desc "Open session" :silent false})
 (map! [n] :<leader>w :<cmd>update<cr> {:desc "Write only when the buffer has been modified"})
 (map! [n] :<leader>q :<cmd>x<cr> {:desc "Write only when changes have been made and quit"})
 (map! [n] :<leader>Q :<cmd>xa<cr> {:desc "Write all changed buffers and exit"})

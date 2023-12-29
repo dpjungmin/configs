@@ -1,36 +1,27 @@
--- Load `lazy` and `hotpot`.
-local function load_initial_dependencies()
-  local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local required_features = { "nvim-0.9.0", "python3" }
+local required_executables = { "git", "rg", "fd" }
 
-  if not vim.loop.fs_stat(lazy_path) then
-    vim.notify("Downloading `lazy.nvim`...", vim.log.levels.WARN)
-    vim.fn.system({
-      "git",
-      "clone",
-      "--filter=blob:none",
-      "https://github.com/folke/lazy.nvim.git",
-      "--branch=stable",
-      lazy_path,
-    })
+for _, feature in ipairs(required_features) do
+  if vim.fn.has(feature) ~= 1 then
+    vim.notify("feature " .. feature .. " is required, but is missing!")
+    vim.cmd("finish")
   end
-
-  local hotpot_path = vim.fn.stdpath("data") .. "/lazy/hotpot.nvim"
-
-  if not vim.loop.fs_stat(hotpot_path) then
-    vim.notify("Downloading `hotpot.nvim`...", vim.log.levels.INFO)
-    vim.fn.system({
-      "git",
-      "clone",
-      "--filter=blob:none",
-      "--single-branch",
-      "--branch=v0.9.1",
-      "https://github.com/rktjmp/hotpot.nvim.git",
-      hotpot_path,
-    })
-  end
-
-  vim.opt.runtimepath:prepend({ lazy_path, hotpot_path })
 end
+
+for _, expr in ipairs(required_executables) do
+  if vim.fn.executable(expr) ~= 1 then
+    vim.notify("executable " .. expr .. " is required, but is missing!")
+    vim.cmd("finish")
+  end
+end
+
+function P(x)
+  print(vim.inspect(x))
+end
+
+require("base")
+require("auto_commands")
+require("mappings")
 
 -- Load configuration written in Fennel.
 local function load_fnl()
@@ -65,7 +56,6 @@ local function load_plugins()
   })
 end
 
-load_initial_dependencies()
 load_fnl()
 load_plugins()
 

@@ -48,24 +48,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- Enable completion triggered by <c-x><c-o>
     vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
-    --   map('K', lsp.buf.hover, 'Displays hover information about the symbol under the cursor')
-    --   map('<m-k>', lsp.buf.signature_help, 'Displays signature information about the symbol under the cursor')
-    --   map('<space>cd', lsp.buf.definition, 'Jumps to the definition of the symbol under the cursor')
-    --   map('<space>cD', lsp.buf.declaration, 'Jumps to the declaration of the symbol under the cursor')
-    --   map('<space>ca', lsp.buf.code_action, 'Selects a code action available at the current cursor position')
-    --   map('<space>ctd', lsp.buf.type_definition, 'Jumps to the definition of the type of the symbol under the cursor')
-    --   map('<space>crn', lsp.buf.rename, 'Renames all references of the symbol under the cursor')
-    --   map('<space>clr', lsp.buf.references, 'Lists all the references to the symbol under the cursor in the quickfix window')
-    --   map('<space>wa', lsp.buf.add_workspace_folder, 'Add the folder at path to the workspace folders')
-    --   map('<space>wr', lsp.buf.remove_workspace_folder, 'Remove the folder at path from the workspace folders')
-    --   map('<space>wl', function()
-    --     vim.notify(
-    --       vim.inspect(vim.lsp.buf.list_workspace_folders()),
-    --       vim.log.levels.INFO,
-    --       { render = 'default', title = 'Workspace folders' }
-    --     )
-    --   end, 'List workspace folders')
-
     -- Buffer local mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     local opts = { buffer = ev.buf }

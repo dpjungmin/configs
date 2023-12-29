@@ -11,7 +11,7 @@ return {
     },
     {
       "<space><leader>",
-      "<cmd>NvimTreeFindFileToggle " .. vim.g.sessiondir .. "<cr>",
+      "<cmd>NvimTreeFindFileToggle " .. vim.g.session_dir .. "<cr>",
       desc = "Toggle nvim-tree (open nvim session directory)",
     },
     { "<leader>r", "<cmd>NvimTreeCollapse<cr>", desc = "Collapse nvim-tree" },

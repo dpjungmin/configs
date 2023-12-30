@@ -1,6 +1,4 @@
 #!/usr/bin/env sh
-#
-# Install packages and setup custom configurations.
 
 parse_args() {
   while [[ "$#" -gt 0 ]]; do
@@ -18,17 +16,6 @@ parse_args() {
   done
 }
 
-check() {
-  local dependencies=(yay Hyprland)
-
-  for d in ${dependencies[@]}; do
-    if [[ -z "$(which $d)" ]]; then
-      echo "missing dependency \`$d\`"
-      exit 1
-    fi
-  done
-}
-
 init() {
   if [[ ! -d "~/.config" ]]; then
     mkdir -p ~/.config
@@ -36,26 +23,10 @@ init() {
 }
 
 install_packages() {
-  sudo yay -S sddm dunst pipewire polkit-kde-agent qt5-wayland qt6-wayland
-  sudo yay -S python python-pip lua clang nodejs typescript llvm
-  sudo yay -S lua-language-server
-  sudo yay -S stylua
-  sudo yay -S git git-lfs
-  sudo yay -S firefox
-  sudo yay -S hyprpaper wofi thunar grim slurp swappy
-  sudo yay -S fish starship zoxide neovim
-  sudo yay -S exa bat ripgrep fd bear git-delta
+  brew bundle install
 }
 
 setup_configurations() {
-  if [[ ! -d "$HOME/.config/hypr" ]]; then
-    ln -s $(pwd)/hypr $HOME/.config/hypr
-  fi
-
-  if [[ ! -d "$HOME/.config/eww" ]]; then
-    ln -s $(pwd)/eww $HOME/.config/eww
-  fi
-
   if [[ ! -d "$HOME/.config/wezterm" ]]; then
     ln -s $(pwd)/wezterm $HOME/.config/wezterm
   fi
@@ -78,7 +49,6 @@ setup_configurations() {
 
 main() {
   parse_args "$@"
-  check
   init
   install_packages
   setup_configurations

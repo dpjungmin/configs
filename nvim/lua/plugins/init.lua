@@ -24,6 +24,7 @@ return {
   "wuelnerdotexe/vim-astro",
 
   -- language enhancements
+  "JoosepAlviste/nvim-ts-context-commentstring",
   { "Olical/aniseed", ft = { "fnl" } },
   { "cespare/vim-toml", ft = { "toml" } },
   { "stephpy/vim-yaml", ft = { "yaml" } },

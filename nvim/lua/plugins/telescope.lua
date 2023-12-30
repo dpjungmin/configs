@@ -6,79 +6,57 @@ return {
   tag = "0.1.2",
   dependencies = { "nvim-lua/plenary.nvim" },
   keys = {
-    { "<space>.", "<cmd>Telescope find_files<cr>", desc = "List files in current directory" },
-    { "<space>,", "<cmd>Telescope buffers<cr>", desc = "List open buffers" },
-    { "<space>fr", "<cmd>Telescope oldfiles<cr>", desc = "Lists most recently opened files" },
-    { "<leader>R", "<cmd>Telescope resume<cr>", desc = "Lists the results of the previous picker" },
+    -- stylua: ignore start
+    { "\\R", "<cmd>Telescope resume<cr>", desc = "lists the results of the previous picker" },
+    { "<leader>.", "<cmd>Telescope find_files<cr>", desc = "list files in current directory" },
+    { "<leader>,", "<cmd>Telescope buffers<cr>", desc = "list open buffers" },
+    { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "lists most recently opened files" },
+    { "<leader>g", "<cmd>Telescope grep_string<cr>", desc = "searches for the string under the cursor" },
+    { "<leader>G", "<cmd>Telescope live_grep<cr>", desc = "search for a string" },
+    { "<leader>fgs", "<cmd>Telescope git_status<cr>", desc = "lists current changes per file with diff preview and add action" },
+    { "<leader>fgb", "<cmd>Telescope git_branches<cr>", desc = "lists all branches with log preview" },
+    { "<leader>fgl", "<cmd>Telescope git_bcommits<cr>", desc = "lists buffer's git commits with diff preview" },
+    { "<leader>fm", "<cmd>Telescope man_pages<cr>", desc = "lists man page entries" },
+    { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "lists available help tags" },
+    { "<leader>fH", "<cmd>Telescope highlights<cr>", desc = "lists available highlights" },
+    { "<leader>fd", "<cmd>Telescope diagnostics<cr>", desc = "lists Diagnostics for all open buffers or a specific buffer" },
+    { "<leader>K", "<cmd>Telescope lsp_references<cr>", desc = "lists LSP references for the work under the cursor" },
+    { "<leader>i", "<cmd>Telescope lsp_implementations<cr>", desc = "lists implementations of the work under the cursor" },
+    -- stylua: ignore end
     {
-      "<space>g",
-      "<cmd>Telescope grep_string<cr>",
-      desc = "Searches for the string under your cursor in your current working directory",
-    },
-    {
-      "<space>G",
-      "<cmd>Telescope live_grep<cr>",
-      desc = "Search for a string in your current directory",
-    },
-    {
-      "<space>rgyaml",
+      "<leader>rgyaml",
       "<cmd>Telescope live_grep vimgrep_arguments=rg,--color=never,--no-heading,--with-filename,--line-number,--column,--smart-case,-tyaml<cr>",
     },
     {
-      "<space>rgmd",
+      "<leader>rgmd",
       "<cmd>Telescope live_grep vimgrep_arguments=rg,--color=never,--no-heading,--with-filename,--line-number,--column,--smart-case,-tmarkdown<cr>",
     },
     {
-      "<space>rgpy",
+      "<leader>rgpy",
       "<cmd>Telescope live_grep vimgrep_arguments=rg,--color=never,--no-heading,--with-filename,--line-number,--column,--smart-case,-tpy<cr>",
     },
     {
-      "<space>rgrs",
+      "<leader>rgrs",
       "<cmd>Telescope live_grep vimgrep_arguments=rg,--color=never,--no-heading,--with-filename,--line-number,--column,--smart-case,-trust<cr>",
     },
     {
-      "<space>rgcc",
+      "<leader>rgh",
+      "<cmd>Telescope live_grep vimgrep_arguments=rg,--color=never,--no-heading,--with-filename,--line-number,--column,--smart-case,-th<cr>",
+    },
+    {
+      "<leader>rgcc",
+      "<cmd>Telescope live_grep vimgrep_arguments=rg,--color=never,--no-heading,--with-filename,--line-number,--column,--smart-case,--type-add=cc:*.cc,-tcc<cr>",
+    },
+    {
+      "<leader>rghcc",
       "<cmd>Telescope live_grep vimgrep_arguments=rg,--color=never,--no-heading,--with-filename,--line-number,--column,--smart-case,--type-add=cc:h,--type-add=cc:*.cc,-tcc<cr>",
     },
     {
-      "<space>rgut",
+      "<leader>rgut",
       "<cmd>Telescope live_grep vimgrep_arguments=rg,--color=never,--no-heading,--with-filename,--line-number,--column,--smart-case,--type-add=ut:*_ut.cc,-tut<cr>",
     },
     {
-      "<space>fgs",
-      "<cmd>Telescope git_status<cr>",
-      desc = "Lists current changes per file with diff preview and add action",
-    },
-    {
-      "<space>fgb",
-      "<cmd>Telescope git_branches<cr>",
-      desc = "Lists all branches with log preview",
-    },
-    {
-      "<space>fgl",
-      "<cmd>Telescope git_bcommits<cr>",
-      desc = "Lists buffer's git commits with diff preview",
-    },
-    { "<space>fm", "<cmd>Telescope man_pages<cr>", desc = "Lists man page entries" },
-    { "<space>fh", "<cmd>Telescope help_tags<cr>", desc = "Lists available help tags" },
-    { "<space>fH", "<cmd>Telescope highlights<cr>", desc = "Lists available highlights" },
-    {
-      "<space>fd",
-      "<cmd>Telescope diagnostics<cr>",
-      desc = "Lists Diagnostics for all open buffers or a specific buffer",
-    },
-    {
-      "<space>K",
-      "<cmd>Telescope lsp_references<cr>",
-      desc = "Lists LSP references for the work under the cursor",
-    },
-    {
-      "<space>i",
-      "<cmd>Telescope lsp_implementations<cr>",
-      desc = "Lists implementations of the work under the cursor",
-    },
-    {
-      "<space>fn",
+      "<leader>fn",
       function()
         require("telescope.builtin").find_files(require("telescope.themes").get_dropdown({
           layout_config = { prompt_position = "top", height = 0.35 },

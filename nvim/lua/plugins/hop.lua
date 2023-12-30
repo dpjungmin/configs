@@ -1,3 +1,5 @@
+-- https://github.com/phaazon/hop.nvim
+
 return {
   "phaazon/hop.nvim",
   branch = "v2",
@@ -8,7 +10,7 @@ return {
       function()
         require("hop").hint_char2()
       end,
-      desc = "Hop to the occurrence of a bigram",
+      desc = "hop to the occurrence of a bigram",
     },
   },
   config = function()

@@ -1,3 +1,5 @@
+-- https://github.com/kevinhwang91/nvim-hlslens
+
 return {
   "kevinhwang91/nvim-hlslens",
   keys = {

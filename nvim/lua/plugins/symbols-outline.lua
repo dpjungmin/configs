@@ -1,7 +1,9 @@
+-- https://github.com/simrat39/symbols-outline.nvim
+
 return {
   "simrat39/symbols-outline.nvim",
   keys = {
-    { "<space>tS", "<cmd>SymbolsOutline<cr>", desc = "Toggle symbols outline" },
+    { "<leader>tS", "<cmd>SymbolsOutline<cr>", desc = "toggle symbols outline" },
   },
   config = function()
     require("symbols-outline").setup({

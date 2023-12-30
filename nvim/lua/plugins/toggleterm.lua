@@ -4,8 +4,8 @@ return {
   "akinsho/toggleterm.nvim",
   event = "VimEnter",
   keys = {
-    { "<c-n>", ":<c-u>ToggleTerm direction=vertical<cr>", desc = "Toggle $TERM vertically" },
-    { "<space>ot", ":<c-u>ToggleTerm direction=tab<cr>", desc = "Open $TERM in a new tab" },
+    { "<c-n>", ":<c-u>ToggleTerm direction=vertical<cr>", desc = "toggle $TERM vertically" },
+    { "<leader>ot", ":<c-u>ToggleTerm direction=tab<cr>", desc = "open $TERM in a new tab" },
   },
   config = function()
     require("toggleterm").setup({

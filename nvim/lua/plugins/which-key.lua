@@ -75,19 +75,16 @@ return {
     })
 
     return wk.register({
-      ["<space>"] = {
+      ["<leader>"] = {
         a = { name = "add" },
-        c = { name = "code" },
+        c = { name = "crates" },
         f = { name = "find" },
+        g = { name = "git" },
         o = { name = "open" },
         t = {
           name = "toggle",
           g = { name = "git" },
         },
-      },
-      ["<leader>"] = {
-        g = { name = "git" },
-        s = { name = "session" },
       },
     })
   end,

@@ -1,3 +1,5 @@
+-- https://github.com/tyru/open-browser.vim
+
 return {
   "tyru/open-browser.vim",
   config = function()

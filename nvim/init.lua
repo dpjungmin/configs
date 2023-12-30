@@ -1,3 +1,7 @@
+function P(x)
+  print(vim.inspect(x))
+end
+
 local required_features = { "nvim-0.9.0", "python3" }
 local required_executables = { "git", "rg", "fd" }
 
@@ -15,39 +19,8 @@ for _, expr in ipairs(required_executables) do
   end
 end
 
-function P(x)
-  print(vim.inspect(x))
-end
-
-require("base")
-require("auto_commands")
-require("mappings")
-
--- Load configuration written in Fennel.
-local function load_fnl()
-  require("hotpot").setup({
-    provide_require_fennel = true,
-    enable_hotpot_diagnostics = true,
-    compiler = {
-      modules = {
-        correlate = true,
-      },
-      macros = {
-        env = "_COMPILER",
-        compilerEnv = _G,
-        allowGlobals = false,
-      },
-    },
-  })
-
-  require("fnl_main")
-end
-
--- Load plugins.
 local function load_plugins()
-  local plugins = require("plugins")
-
-  require("lazy").setup(plugins, {
+  require("lazy").setup("plugins", {
     root = vim.fn.stdpath("data") .. "/lazy",
     lockfile = vim.fn.stdpath("config") .. "/lazy-lock.json",
     ui = {
@@ -56,8 +29,8 @@ local function load_plugins()
   })
 end
 
-load_fnl()
+require("base")
+require("mappings")
+require("auto_commands")
 load_plugins()
-
--- Load colorscheme.
-require("colors").load("park")
+require("theme")

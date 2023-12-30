@@ -1,5 +1,4 @@
 return {
-  "rktjmp/hotpot.nvim",
   "nvim-lua/popup.nvim",
   "nvim-lua/plenary.nvim",
   "kyazdani42/nvim-web-devicons",
@@ -24,42 +23,14 @@ return {
   "jose-elias-alvarez/null-ls.nvim",
   "wuelnerdotexe/vim-astro",
 
-  require("plugins.nvim-lspconfig"),
-  require("plugins.nvim-cmp"),
-  require("plugins.formatter"),
-  require("plugins.nvim-treesitter"),
-  require("plugins.nvim-treesitter-context"),
-  require("plugins.vim-illuminate"),
-  require("plugins.nvim-colorizer"),
-  require("plugins.nvim-autopairs"),
-  require("plugins.vim-startify"),
-  require("plugins.vim-markdown"),
-  require("plugins.gitsigns"),
-  require("plugins.neoscroll"),
-  require("plugins.indent-blankline"),
-  require("plugins.nvim-tree"),
-  require("plugins.telescope"),
-  require("plugins.symbols-outline"),
-  require("plugins.crates"),
-  require("plugins.open-browser"),
-  require("plugins.hop"),
-  require("plugins.wilder"),
-  require("plugins.nvim-hlslens"),
-  require("plugins.todo-comments"),
-  require("plugins.toggleterm"),
-  require("plugins.which-key"),
-  require("plugins.lightline"),
-  require("plugins.vim-flog"),
-  require("plugins.fidget"),
-
-  -- Language enhancements
+  -- language enhancements
   { "Olical/aniseed", ft = { "fnl" } },
   { "cespare/vim-toml", ft = { "toml" } },
   { "stephpy/vim-yaml", ft = { "yaml" } },
   { "dag/vim-fish", ft = { "fish" } },
   { "LnL7/vim-nix", ft = { "nix" } },
 
-  -- Snippets
+  -- snippets
   {
     "SirVer/ultisnips",
     config = function()

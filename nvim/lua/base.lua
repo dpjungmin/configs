@@ -14,22 +14,7 @@ local function load_initial_dependencies()
     })
   end
 
-  -- TODO: remove fennel and hotpot
-  local hotpot_path = vim.fn.stdpath("data") .. "/lazy/hotpot.nvim"
-
-  if not vim.loop.fs_stat(hotpot_path) then
-    vim.fn.system({
-      "git",
-      "clone",
-      "--filter=blob:none",
-      "--single-branch",
-      "--branch=v0.9.1",
-      "https://github.com/rktjmp/hotpot.nvim.git",
-      hotpot_path,
-    })
-  end
-
-  vim.opt.runtimepath:prepend({ lazy_path, hotpot_path })
+  vim.opt.runtimepath:prepend({ lazy_path })
 end
 
 load_initial_dependencies()
@@ -49,6 +34,8 @@ vim.opt.wildignore = { "*.o", "*.obj", "*.dylib", "*.bin" }
 vim.opt.wildignore:append({ "*/.git/*", "*/__pycache__/*", "*/build/**", "*/node_modules/*" })
 vim.opt.wildignore:append({ "*.jpg", "*.png", "*.jpef", "*.gif", "*.tiff", "*.svg", "*.ico" })
 vim.opt.wildignore:append({ "*.DS_Store" })
+
+vim.opt.tags = { "./tags", "./.tags", ".git/tags", ".git/.tags" } -- ctags
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4

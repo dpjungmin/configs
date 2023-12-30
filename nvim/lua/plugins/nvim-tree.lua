@@ -1,20 +1,17 @@
+-- https://github.com/nvim-tree/nvim-tree.lua
+
 return {
   "kyazdani42/nvim-tree.lua",
   tag = "nightly",
   dependencies = { "kyazdani42/nvim-web-devicons" },
   keys = {
-    { "<space>s", "<cmd>NvimTreeToggle<cr>", desc = "Toggle nvim-tree" },
+    { "<leader>s", "<cmd>NvimTreeToggle<cr>", desc = "toggle nvim-tree" },
     {
-      "<space>S",
+      "<leader>S",
       "<cmd>NvimTreeFindFileToggle<cr>",
-      desc = "Toggle nvim-tree (focus on the current file)",
+      desc = "toggle nvim-tree (focus on the current file)",
     },
-    {
-      "<space><leader>",
-      "<cmd>NvimTreeFindFileToggle " .. vim.g.session_dir .. "<cr>",
-      desc = "Toggle nvim-tree (open nvim session directory)",
-    },
-    { "<leader>r", "<cmd>NvimTreeCollapse<cr>", desc = "Collapse nvim-tree" },
+    { "\\r", "<cmd>NvimTreeCollapse<cr>", desc = "collapse nvim-tree" },
   },
   config = function()
     require("nvim-tree").setup({

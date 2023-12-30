@@ -1,3 +1,5 @@
+-- https://github.com/lewis6991/gitsigns.nvim
+
 local function on_attach(_)
   local function map(mode, lhs, rhs, opts)
     local options = { noremap = true, silent = true }
@@ -26,17 +28,17 @@ local function on_attach(_)
   end, { desc = "", expr = true })
 
   -- stylua: ignore start
-  map({ 'n', 'v' }, '<leader>gs', '<cmd>Gitsigns stage_hunk<cr>', { desc = 'Stage the hunk at the cursor position' })
-  map({ 'n', 'v' }, '<leader>gr', '<cmd>Gitsigns reset_hunk<cr>', { desc = 'Reset the lines of the hunk at the cursor position' })
-  map('n', '<leader>gS', gs.stage_buffer, { desc = 'Stage all hunks in current buffer' })
-  map('n', '<leader>gu', gs.undo_stage_hunk, { desc = 'Undo the last stage_hunk()' })
-  map('n', '<leader>gR', gs.reset_buffer, { desc = 'Reset the lines of all hunks in the buffer' })
-  map('n', '<space>p', gs.preview_hunk, { desc = 'Preview the hunk at the cursor position' })
-  map('n', '<leader>gb', function() gs.blame_line { full = true } end, { desc = 'Run git blame on the current line' })
-  map('n', '<leader>gd', gs.diffthis, { desc = 'Perform a vimdiff on the given file' })
-  map('n', '<space>tgb', gs.toggle_current_line_blame, { desc = 'Toggle current-line git blame' })
-  map('n', '<space>tgd', gs.toggle_deleted, { desc = 'Toggle git deleted' })
-  map('n', '<space>tgs', gs.toggle_signs, { desc = 'Toggle git signs' })
+  map({ 'n', 'v' }, '<leader>gs', '<cmd>Gitsigns stage_hunk<cr>', { desc = 'stage the hunk at the cursor position' })
+  map({ 'n', 'v' }, '<leader>gr', '<cmd>Gitsigns reset_hunk<cr>', { desc = 'reset the lines of the hunk at the cursor position' })
+  map('n', '<leader>gS', gs.stage_buffer, { desc = 'stage all hunks in current buffer' })
+  map('n', '<leader>gu', gs.undo_stage_hunk, { desc = 'undo the last stage_hunk()' })
+  map('n', '<leader>gR', gs.reset_buffer, { desc = 'reset the lines of all hunks in the buffer' })
+  map('n', '<leader>p', gs.preview_hunk, { desc = 'preview the hunk at the cursor position' })
+  map('n', '<leader>gb', function() gs.blame_line { full = true } end, { desc = 'run git blame on the current line' })
+  map('n', '<leader>gd', gs.diffthis, { desc = 'perform a vimdiff on the given file' })
+  map('n', '<space>tgb', gs.toggle_current_line_blame, { desc = 'toggle current-line git blame' })
+  map('n', '<space>tgd', gs.toggle_deleted, { desc = 'toggle git deleted' })
+  map('n', '<space>tgs', gs.toggle_signs, { desc = 'toggle git signs' })
   map({ 'o', 'x' }, 'ih', ':<c-u>Gitsigns select_hunk<cr>')
   -- stylua: ignore end
 end

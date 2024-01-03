@@ -48,7 +48,7 @@ vim.g.colors_name = "dpark"
 vim.opt.termguicolors = true
 
 -- custom highlights
-hl("YankColor", { bg = "#2ecc71" })
+hl("YankColor", { fg = "#2b2539", bg = "#2ecc71" })
 hl("InlayHints", { fg = "#b0c4de" })
 hl("MatchAccent", { fg = "#30dff3", style = { "bold" } })
 

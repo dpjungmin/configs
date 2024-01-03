@@ -14,11 +14,13 @@ return {
     { "gtd", "<cmd>Lspsaga peek_type_definition<cr>", desc = "peek type definition" },
     { "<leader>f", "<cmd>Lspsaga finder<cr>", desc = "peek type definition" },
     { "<leader>k", "<cmd>Lspsaga hover_doc ++keep<cr>", desc = "pin the hover window" },
+    { "<leader>rn", "<cmd>Lspsaga rename<cr>", desc = "rename (language symbol)" },
+    { "<leader>rN", "<cmd>Lspsaga rename ++project<cr>", desc = "rename (project level)" },
   },
   config = function()
     require("lspsaga").setup({
       symbol_in_winbar = {
-        enable = true,
+        enable = false,
         separator = " › ",
         hide_keyword = true,
         show_file = false,
@@ -86,6 +88,17 @@ return {
         virtual_text = false,
         debounce = 10,
         sign_priority = 40,
+      },
+      rename = {
+        in_select = true,
+        auto_save = false,
+        project_max_width = 0.5,
+        project_max_height = 0.5,
+        keys = {
+          quit = "q",
+          exec = "<cr>",
+          select = "x",
+        },
       },
       ui = {
         border = "single",

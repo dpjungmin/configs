@@ -34,10 +34,10 @@ map("n", "<leader>tn", function()
 end)
 -- toggle statusline
 map("n", "<leader>ts", function()
-  if vim.opt.laststatus:get() == 3 then
-    vim.opt.laststatus = 0
+  if vim.opt.laststatus:get() == 1 then
+    vim.opt.laststatus = 2
   else
-    vim.opt.laststatus = 3
+    vim.opt.laststatus = 1
   end
 end)
 -- toggle cursorline

@@ -70,5 +70,5 @@ vim.opt.textwidth = 100
 vim.opt.shiftround = true
 vim.opt.hidden = true
 vim.opt.signcolumn = "yes"
-vim.opt.laststatus = 0
+vim.opt.laststatus = 1
 vim.opt.cmdheight = 0

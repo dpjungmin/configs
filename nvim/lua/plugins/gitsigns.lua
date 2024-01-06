@@ -11,7 +11,7 @@ local function on_attach(_)
 
   local gs = package.loaded.gitsigns
 
-  map("n", "]c", function()
+  map("n", "]g", function()
     if vim.wo.diff then
       return "]c"
     end
@@ -19,7 +19,7 @@ local function on_attach(_)
     return "<Ignore>"
   end, { expr = true })
 
-  map("n", "[c", function()
+  map("n", "[g", function()
     if vim.wo.diff then
       return "[c"
     end

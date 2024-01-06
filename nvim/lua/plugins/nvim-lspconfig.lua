@@ -301,6 +301,22 @@ local function setup_lsp()
     ),
   })
 
+  lspconfig["clangd"].setup({
+    capabilities = capabilities,
+    flags = { debounce_text_changes = 150 },
+    cmd = { "clangd" },
+    filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto", "cc" },
+    root_dir = require("lspconfig.util").root_pattern(
+      ".clangd",
+      ".clang-tidy",
+      ".clang-format",
+      "compile_commands.json",
+      "compile_flags.txt",
+      ".git"
+    ),
+    single_file_support = true,
+  })
+
   setup_rust_tools()
 end
 
@@ -324,6 +340,7 @@ return {
     },
     { "<leader><leader>S", "<cmd>LspStart<cr>", desc = "start LSP client" },
     { "<leader><leader>s", "<cmd>LspStop<cr>", desc = "stop LSP client" },
+    { "\\h", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "switch between source and header" },
     { "<leader>e", vim.diagnostic.open_float, desc = "show diagnostics in a floating window" },
     {
       "[d",

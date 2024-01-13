@@ -45,6 +45,10 @@ setup_configurations() {
   if [[ ! -d "$HOME/.config/nvim" ]]; then
     ln -s $(pwd)/nvim $HOME/.config/nvim
   fi
+
+  if [[ ! -d "$HOME/.ripgreprc" ]]; then
+    ln -s $(pwd)/.ripgreprc $HOME/.ripgreprc
+  fi
 }
 
 main() {

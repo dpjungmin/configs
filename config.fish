@@ -19,11 +19,13 @@ alias gfp="git push --force-with-lease origin HEAD"
 alias gri="git rebase --interactive"
 alias grc="git rebase --continue"
 alias gw="git worktree"
+alias rgf="rg --files-with-matches"
 
 # environment variables
 set -gx TERM screen-256color
 set -gx EDITOR nvim
 set -Ux RUST_BACKTRACE 1
+set -Ux RIPGREP_CONFIG_PATH $HOME/.ripgreprc
 
 # paths
 set -x PATH $PATH /usr/local/bin

@@ -1,20 +1,14 @@
+[include]
+    path = ~/sx/configs/themes.gitconfig
+
 [user]
     name = David Park
     email = dpjungmin@gmail.com
 
 [alias]
-    c = commit
-    s = status
-    st = status
-    l = log --oneline
-    L = log --oneline --graph
-    last = log -1 HEAD
-    r = rebase
-    ri = rebase -i
-    rc = rebase --continue
+    a = config --get-regexp alias
     root = rev-parse --show-toplevel
     path = rev-parse --show-prefix
-    dft = difftool
 
 [init]
     defaultBranch = main
@@ -34,6 +28,22 @@
 [color]
     ui = auto
 
+[diff]
+    colorMoved = default
+
+[merge]
+    conflictstyle = diff3
+
 [core]
     editor = nvim
     pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    ; features = arctic-fox
+    ; features = calochortus-lyallii
+    ; features = chameleon ; side-by-side
+    features = mellow-barbet ; side-by-side
+    true-color = always

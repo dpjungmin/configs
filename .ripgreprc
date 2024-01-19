@@ -12,7 +12,7 @@ cc:*.{cc}*
 --type-add
 hcc:*.{h, cc}*
 
-# Using glob patterns to include/exclude files or folders
+# Using glob patterns to include/exclude files or folders.
 --glob
 !.git/*
 

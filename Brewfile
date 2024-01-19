@@ -34,6 +34,7 @@ brew "armmbed/formulae/arm-none-eabi-gcc"
 brew "solidiquis/tap/erdtree"
 brew "bloaty"
 brew "autojump"
+brew "git-delta"
 
 cask "amethyst"
 cask "font-lekton-nerd-font"

@@ -4,21 +4,27 @@ alias ls="exa -F"
 alias la="exa -aF"
 alias ll="exa -lF"
 alias lla="exa -alF"
-alias tree="et --icons --sort size"
-alias cat="bat --plain --theme zenburn"
-alias vi="nvim --clean"
-alias vim=nvim
-alias c=cargo
+
+alias ga="git add"
 alias gc="git checkout"
 alias gs="git status"
 alias gd="git diff"
+alias gD="git diff --staged"
 alias gl="git log --oneline --decorate --pretty=format:'%Cred%h%Creset %Cgreen%an%Creset %s (%Cblue%ar%Creset)'"
 alias gL="git log --oneline --decorate --graph"
 alias gp="git push origin HEAD"
 alias gfp="git push --force-with-lease origin HEAD"
-alias gri="git rebase --interactive"
+alias gr="git rebase --interactive"
 alias grc="git rebase --continue"
 alias gw="git worktree"
+alias s="git show"
+alias gss="git stash show -p"
+
+alias c=cargo
+alias tree="et --icons --sort size"
+alias vi="nvim --clean"
+alias vim=nvim
+alias cat="bat --plain --theme zenburn"
 alias rgf="rg --files-with-matches"
 
 # environment variables
@@ -42,8 +48,6 @@ switch (uname)
         set -x PATH $PATH /opt/homebrew/bin
         set -x PATH $PATH ~/opt/anaconda3/bin
         set -x PATH $PATH (brew --prefix)/opt/python/libexec/bin
-        set -x PATH $PATH /run/current-system/sw/bin
-        set -x PATH $PATH /etc/profiles/per-user/jungmin/bin
     case '*'
 end
 

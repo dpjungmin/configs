@@ -7,6 +7,7 @@ alias lla="exa -alF"
 
 alias ga="git add"
 alias gc="git checkout"
+alias gcm="git commit --message"
 alias gs="git status"
 alias gd="git diff"
 alias gD="git diff --staged"

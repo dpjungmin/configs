@@ -4,14 +4,14 @@ return {
   "mhartington/formatter.nvim",
   event = "VimEnter",
   config = function()
-    local util = require("formatter.util")
-
     require("formatter").setup({
       logging = true,
       log_level = vim.log.levels.WARN,
       filetype = {
         lua = {
           function()
+            local util = require("formatter.util")
+
             return {
               exe = "stylua",
               args = {
@@ -81,6 +81,13 @@ return {
         astro = { require("formatter.filetypes.javascript").prettier },
         ["*"] = { require("formatter.filetypes.any").remove_trailing_whitespace },
       },
+    })
+
+    vim.api.nvim_create_autocmd("BufWritePost", {
+      group = vim.api.nvim_create_augroup("formatter", { clear = true }),
+      pattern = "*",
+      desc = "format on save",
+      command = "FormatWrite",
     })
   end,
 }

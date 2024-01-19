@@ -4,15 +4,6 @@ return {
   "kyazdani42/nvim-tree.lua",
   tag = "nightly",
   dependencies = { "kyazdani42/nvim-web-devicons" },
-  keys = {
-    { "<leader>s", "<cmd>NvimTreeToggle<cr>", desc = "toggle nvim-tree" },
-    {
-      "<leader>S",
-      "<cmd>NvimTreeFindFileToggle<cr>",
-      desc = "toggle nvim-tree (focus on the current file)",
-    },
-    { "\\r", "<cmd>NvimTreeCollapse<cr>", desc = "collapse nvim-tree" },
-  },
   config = function()
     require("nvim-tree").setup({
       auto_reload_on_write = true,
@@ -147,5 +138,22 @@ return {
       open_on_tab = false,
       update_cwd = false,
     })
+
+    -- keymaps
+    vim.keymap.set("n", "\\r", "<cmd>NvimTreeCollapse<cr>", { desc = "collapse nvim-tree" })
+    vim.keymap.set("n", "<leader>s", "<cmd>NvimTreeToggle<cr>", { desc = "toggle nvim-tree" })
+    vim.keymap.set(
+      "n",
+      "<leader>S",
+      "<cmd>NvimTreeFindFileToggle<cr>",
+      { desc = "toggle nvim-tree and focus on the current file" }
+    )
+
+    -- highlights
+    vim.api.nvim_set_hl(0, "NvimTreeGitNew", { fg = "#46954a" })
+    vim.api.nvim_set_hl(0, "NvimTreeGitRenamed", { fg = "#ae7c14" })
+    vim.api.nvim_set_hl(0, "NvimTreeGitDeleted", { fg = "#e5534b" })
+    vim.api.nvim_set_hl(0, "NvimTreeRootFolder", { fg = "#ffffff" })
+    vim.api.nvim_set_hl(0, "NvimTreeSpecialFile", { fg = "#ffffff" })
   end,
 }

@@ -1,5 +1,5 @@
 [include]
-    path = ~/sx/configs/themes.gitconfig
+    path = ~/themes.gitconfig
 
 [user]
     name = David Park

@@ -1,37 +1,29 @@
--- global editor variables
-vim.g.vimsyn_embed = "lP"
-vim.g.is_mac = vim.fn.has("macunix")
-vim.g.is_linux = vim.fn.has("unix") and not vim.fn.has("macunix")
-vim.g.session_dir = vim.fn.stdpath("data") .. "/sessions"
-
-vim.fn.mkdir(vim.g.session_dir, "p")
-vim.cmd("filetype plugin indent on") -- see ``:h filetype-overview``
-
--- options
 vim.opt.wildignorecase = true
 vim.opt.wildignore = { "*.o", "*.obj", "*.dylib", "*.bin" }
 vim.opt.wildignore:append({ "*/.git/*", "*/__pycache__/*", "*/build/**", "*/node_modules/*" })
 vim.opt.wildignore:append({ "*.jpg", "*.png", "*.jpef", "*.gif", "*.tiff", "*.svg", "*.ico" })
 vim.opt.wildignore:append({ "*.DS_Store" })
 
-vim.opt.tags = { "./tags", "./.tags", ".git/tags", ".git/.tags" } -- ctags
-
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
+vim.opt.foldmethod = "syntax"
+vim.opt.foldlevelstart = 0
+vim.opt.foldenable = true
+
+vim.opt.tags = { "tags", ".tags", ".git/tags", ".git/.tags" } -- ctags
+vim.opt.spell = true
 vim.opt.mouse = "a"
 vim.opt.mousemodel = "popup"
-
 vim.opt.pumheight = 10
 vim.opt.pumblend = 10
 vim.opt.winblend = 0
-
 vim.opt.number = false
 vim.opt.relativenumber = false
 vim.opt.cursorline = false
-
+vim.opt.termguicolors = true
 vim.opt.clipboard:append({ "unnamedplus" })
 vim.opt.matchpairs:append({ "<:>", "“:”", "‘:’" })
 vim.opt.linebreak = true
@@ -60,10 +52,6 @@ vim.opt.showmatch = true
 vim.opt.wrap = false
 vim.opt.autoindent = true
 vim.opt.smartindent = true
-vim.opt.foldmethod = "manual"
-vim.opt.foldlevel = 0
-vim.opt.conceallevel = 1
-vim.opt.foldenable = true
 vim.opt.signcolumn = "yes"
 vim.opt.colorcolumn = ""
 vim.opt.textwidth = 100

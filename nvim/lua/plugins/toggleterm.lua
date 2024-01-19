@@ -3,29 +3,26 @@
 return {
   "akinsho/toggleterm.nvim",
   event = "VimEnter",
-  keys = {
-    { "<c-n>", ":<c-u>ToggleTerm direction=vertical<cr>", desc = "toggle $TERM vertically" },
-    { "<leader>ot", ":<c-u>ToggleTerm direction=tab<cr>", desc = "open $TERM in a new tab" },
-  },
   config = function()
     require("toggleterm").setup({
-      shell = (os.getenv("SHELL") or "sh"),
-      open_mapping = "<c-\\>",
       size = function(term)
         if term.direction == "horizontal" then
           return 25
         elseif term.direction == "vertical" then
           return (vim.o.columns * 0.4)
-        else
-          return nil
         end
       end,
+      open_mapping = "<c-\\>",
+      hide_numbers = true,
       shade_terminals = true,
       shading_factor = 2,
-      hide_numbers = true,
       start_in_insert = true,
+      persist_size = false,
+      persist_mode = true,
+      direction = "horizontal",
       close_on_exit = true,
-      direction = "float",
+      shell = vim.o.shell,
+      auto_scroll = true,
       float_opts = { border = "single", winblend = 0 },
       winbar = {
         enabled = false,

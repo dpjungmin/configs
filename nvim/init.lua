@@ -2,20 +2,22 @@ function P(x)
   print(vim.inspect(x))
 end
 
-local required_features = { "nvim-0.9.0", "python3" }
-local required_executables = { "git", "rg", "fd" }
+local function check()
+  local required_features = { "nvim-0.9.0", "python3" }
+  local required_executables = { "git", "rg", "fd" }
 
-for _, feature in ipairs(required_features) do
-  if vim.fn.has(feature) ~= 1 then
-    vim.notify("feature " .. feature .. " is required, but is missing!")
-    vim.cmd("finish")
+  for _, feature in ipairs(required_features) do
+    if vim.fn.has(feature) ~= 1 then
+      vim.notify("feature " .. feature .. " is required, but is missing!")
+      vim.cmd("finish")
+    end
   end
-end
 
-for _, expr in ipairs(required_executables) do
-  if vim.fn.executable(expr) ~= 1 then
-    vim.notify("executable " .. expr .. " is required, but is missing!")
-    vim.cmd("finish")
+  for _, expr in ipairs(required_executables) do
+    if vim.fn.executable(expr) ~= 1 then
+      vim.notify("executable " .. expr .. " is required, but is missing!")
+      vim.cmd("finish")
+    end
   end
 end
 
@@ -47,8 +49,17 @@ local function load_plugins()
   vim.keymap.set("n", "<leader>L", "<cmd>Lazy<cr>", { silent = true })
 end
 
-require("base")
-require("mappings")
-require("auto_commands")
-load_plugins()
-require("theme")
+local function main()
+  check()
+
+  vim.g.session_dir = vim.fn.stdpath("data") .. "/sessions"
+  vim.fn.mkdir(vim.g.session_dir, "p")
+
+  require("options")
+  require("keymaps")
+  require("autocommands")
+  load_plugins()
+  require("highlights")
+end
+
+main()

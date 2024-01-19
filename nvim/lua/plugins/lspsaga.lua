@@ -1,21 +1,13 @@
+-- https://github.com/nvimdev/lspsaga.nvim
+
 return {
   "nvimdev/lspsaga.nvim",
   event = "LspAttach",
-  ft = { "c", "cpp", "lua", "rust", "go", "python" },
+  ft = { "c", "cpp", "cc", "lua", "rust", "go", "python" },
   dependencies = {
     "nvim-treesitter/nvim-treesitter", -- optional
     "nvim-tree/nvim-web-devicons", -- optional
     "neovim/nvim-lspconfig",
-  },
-  keys = {
-    { "gic", "<cmd>Lspsaga incoming_calls<cr>", desc = "peek incoming calls" },
-    { "goc", "<cmd>Lspsaga outgoing_calls<cr>", desc = "peek outgoing calls" },
-    { "gd", "<cmd>Lspsaga peek_definition<cr>", desc = "peek definition" },
-    { "gtd", "<cmd>Lspsaga peek_type_definition<cr>", desc = "peek type definition" },
-    { "<leader>f", "<cmd>Lspsaga finder<cr>", desc = "peek type definition" },
-    { "<leader>k", "<cmd>Lspsaga hover_doc ++keep<cr>", desc = "pin the hover window" },
-    { "<leader>rn", "<cmd>Lspsaga rename<cr>", desc = "rename (language symbol)" },
-    { "<leader>rN", "<cmd>Lspsaga rename ++project<cr>", desc = "rename (project level)" },
   },
   config = function()
     require("lspsaga").setup({
@@ -113,5 +105,17 @@ return {
         imp_sign = "󰳛 ",
       },
     })
+
+    --keymaps
+    -- stylua: ignore start
+    vim.keymap.set("n", "gic", "<cmd>Lspsaga incoming_calls<cr>", { desc = "peek incoming calls" })
+    vim.keymap.set("n", "goc", "<cmd>Lspsaga outgoing_calls<cr>", { desc = "peek outgoing calls" })
+    vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<cr>", { desc = "peek definition" })
+    vim.keymap.set("n", "gtd", "<cmd>Lspsaga peek_type_definition<cr>", { desc = "peek type definition" })
+    vim.keymap.set("n", "gf", "<cmd>Lspsaga finder<cr>", {})
+    vim.keymap.set("n", "<leader>k", "<cmd>Lspsaga hover_doc ++keep<cr>", { desc = "pin the hover window"})
+    vim.keymap.set("n", "<leader>Rn", "<cmd>Lspsaga rename<cr>", { desc = "rename (language symbol)"})
+    vim.keymap.set("n", "<leader>RN", "<cmd>Lspsaga rename ++project<cr>", { desc = "rename (project level)"})
+    -- stylua: ignore end
   end,
 }

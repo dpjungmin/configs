@@ -25,11 +25,20 @@ return {
     wilder.set_option(
       "renderer",
       wilder.popupmenu_renderer({
-        highlighter = { wilder.lua_fzy_highlighter() },
-        highlights = { accent = "MatchAccent" },
+        mode = "float",
+        highlights = {
+          default = "Pmenu",
+          selected = "PmenuSel",
+          error = "ErrorMsg",
+          accent = "MatchAccent",
+          selected_accent = "MatchAccentSel",
+          empty_message = "WarningMsg",
+        },
+        ellipsis = "..",
         left = { " ", wilder.popupmenu_devicons() },
         right = { " ", wilder.popupmenu_scrollbar() },
-        pumblend = 10,
+        highlighter = { wilder.lua_fzy_highlighter() },
+        pumblend = 0,
         max_height = "50%",
       })
     )

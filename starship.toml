@@ -1,5 +1,5 @@
 format = """
-$hostname[:](bright-black)$directory\
+$time$hostname[:](bright-black)$directory\
 $git_branch$git_commit$git_state$git_status\
 $rust\
 $sudo$character

@@ -2,26 +2,40 @@ return {
   "nvim-lua/popup.nvim",
   "nvim-lua/plenary.nvim",
   "kyazdani42/nvim-web-devicons",
-  "windwp/nvim-ts-autotag",
-  "hrsh7th/cmp-nvim-lsp",
-  "simrat39/rust-tools.nvim",
-  "p00f/clangd_extensions.nvim",
-  "mfussenegger/nvim-dap",
-  "romgrk/fzy-lua-native",
-  "onsails/lspkind-nvim",
-  "hrsh7th/cmp-nvim-lua",
-  "hrsh7th/cmp-buffer",
-  "hrsh7th/cmp-path",
-  "hrsh7th/cmp-cmdline",
-  "mtoohey31/cmp-fish",
-  "roxma/nvim-yarp",
-  "roxma/vim-hug-neovim-rpc",
-  "machakann/vim-swap",
-  "machakann/vim-sandwich",
   "itchyny/vim-highlighturl",
   "tpope/vim-commentary",
-  "jose-elias-alvarez/null-ls.nvim",
-  "wuelnerdotexe/vim-astro",
+  "tpope/vim-surround",
+
+  {
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      vim.opt.termguicolors = true
+      require("colorizer").setup()
+    end,
+  },
+  {
+    "preservim/vim-markdown",
+    ft = { "markdown" },
+    config = function()
+      vim.g.vim_markdown_folding_disabled = 1
+    end,
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+  },
+  {
+    "tyru/open-browser.vim",
+    config = function()
+      vim.cmd([[
+        let g:netrw_nogx = 1
+        nmap gx <Plug>(openbrowser-smart-search)
+        vmap gx <Plug>(openbrowser-smart-search)
+      ]])
+    end,
+  },
 
   -- language enhancements
   "JoosepAlviste/nvim-ts-context-commentstring",
@@ -30,6 +44,7 @@ return {
   { "stephpy/vim-yaml", ft = { "yaml" } },
   { "dag/vim-fish", ft = { "fish" } },
   { "LnL7/vim-nix", ft = { "nix" } },
+  "wuelnerdotexe/vim-astro",
 
   -- snippets
   {

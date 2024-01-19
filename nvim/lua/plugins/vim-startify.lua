@@ -3,16 +3,30 @@
 return {
   "mhinz/vim-startify",
   config = function()
-    local g = vim.g
-    g.startify_session_dir = g.session_dir
-    g.ascii = { "작은 일에도 최선을" }
-    g.startify_custom_header = "startify#pad(g:ascii)"
-    g.startify_lists = {
+    -- configs
+    vim.g.startify_session_dir = vim.g.session_dir
+    vim.g.ascii = { "작은 일에도 최선을" }
+    vim.g.startify_custom_header = "startify#pad(g:ascii)"
+    vim.g.startify_lists = {
       { header = { "   sessions" }, type = "sessions" },
       { header = { "   bookmarks" }, type = "bookmarks" },
       { header = { "   commands" }, type = "commands" },
     }
-    g.startify_bookmarks = {}
-    g.startify_commands = {}
+    vim.g.startify_bookmarks = {}
+    vim.g.startify_commands = {}
+
+    -- keymaps
+    vim.keymap.set(
+      "n",
+      "\\ss",
+      ":mks! " .. vim.g.session_dir .. "/",
+      { noremap = true, desc = "save session" }
+    )
+    vim.keymap.set(
+      "n",
+      "\\os",
+      ":so " .. vim.g.session_dir .. "/",
+      { noremap = true, desc = "open session" }
+    )
   end,
 }

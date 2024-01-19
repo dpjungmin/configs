@@ -1,76 +1,11 @@
 -- https://github.com/nvim-telescope/telescope.nvim
--- https://github.com/nvim-telescope/telescope.nvim/blob/master/lua/telescope/mappings.lua
 
 return {
   "nvim-telescope/telescope.nvim",
-  tag = "0.1.2",
+  tag = "0.1.5",
   dependencies = { "nvim-lua/plenary.nvim" },
-  keys = {
-    -- stylua: ignore start
-    { "\\R", "<cmd>Telescope resume<cr>", desc = "lists the results of the previous picker" },
-    { "<leader>.", "<cmd>Telescope find_files<cr>", desc = "list files in current directory" },
-    { "<leader>,", "<cmd>Telescope buffers<cr>", desc = "list open buffers" },
-    { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "lists most recently opened files" },
-    { "<leader>g", "<cmd>Telescope grep_string<cr>", desc = "searches for the string under the cursor" },
-    { "<leader>G", "<cmd>Telescope live_grep<cr>", desc = "search for a string" },
-    { "<leader>fgs", "<cmd>Telescope git_status<cr>", desc = "lists current changes per file with diff preview and add action" },
-    { "<leader>fgb", "<cmd>Telescope git_branches<cr>", desc = "lists all branches with log preview" },
-    { "<leader>fgl", "<cmd>Telescope git_bcommits<cr>", desc = "lists buffer's git commits with diff preview" },
-    { "<leader>fm", "<cmd>Telescope man_pages<cr>", desc = "lists man page entries" },
-    { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "lists available help tags" },
-    { "<leader>fH", "<cmd>Telescope highlights<cr>", desc = "lists available highlights" },
-    { "<leader>fd", "<cmd>Telescope diagnostics<cr>", desc = "lists Diagnostics for all open buffers or a specific buffer" },
-    { "<leader>K", "<cmd>Telescope lsp_references<cr>", desc = "lists LSP references for the work under the cursor" },
-    { "<leader>i", "<cmd>Telescope lsp_implementations<cr>", desc = "lists implementations of the work under the cursor" },
-    -- stylua: ignore end
-    {
-      "<leader>rgyaml",
-      "<cmd>Telescope live_grep vimgrep_arguments=rg,--color=never,--no-heading,--with-filename,--line-number,--column,--smart-case,-tyaml<cr>",
-    },
-    {
-      "<leader>rgmd",
-      "<cmd>Telescope live_grep vimgrep_arguments=rg,--color=never,--no-heading,--with-filename,--line-number,--column,--smart-case,-tmarkdown<cr>",
-    },
-    {
-      "<leader>rgpy",
-      "<cmd>Telescope live_grep vimgrep_arguments=rg,--color=never,--no-heading,--with-filename,--line-number,--column,--smart-case,-tpy<cr>",
-    },
-    {
-      "<leader>rgrs",
-      "<cmd>Telescope live_grep vimgrep_arguments=rg,--color=never,--no-heading,--with-filename,--line-number,--column,--smart-case,-trust<cr>",
-    },
-    {
-      "<leader>rgh",
-      "<cmd>Telescope live_grep vimgrep_arguments=rg,--color=never,--no-heading,--with-filename,--line-number,--column,--smart-case,-th<cr>",
-    },
-    {
-      "<leader>rgcc",
-      "<cmd>Telescope live_grep vimgrep_arguments=rg,--color=never,--no-heading,--with-filename,--line-number,--column,--smart-case,--type-add=cc:*.cc,-tcc<cr>",
-    },
-    {
-      "<leader>rghcc",
-      "<cmd>Telescope live_grep vimgrep_arguments=rg,--color=never,--no-heading,--with-filename,--line-number,--column,--smart-case,--type-add=cc:h,--type-add=cc:*.cc,-tcc<cr>",
-    },
-    {
-      "<leader>rgut",
-      "<cmd>Telescope live_grep vimgrep_arguments=rg,--color=never,--no-heading,--with-filename,--line-number,--column,--smart-case,--type-add=ut:*_ut.cc,-tut<cr>",
-    },
-    {
-      "<leader>fn",
-      function()
-        require("telescope.builtin").find_files(require("telescope.themes").get_dropdown({
-          layout_config = { prompt_position = "top", height = 0.35 },
-          layout_strategy = "bottom_pane",
-          prompt_prefix = " [nvim config files] ",
-          prompt_title = "",
-          cwd = "~/.config/nvim",
-        }))
-      end,
-      desc = "List Neovim config files",
-    },
-  },
   config = function()
-    return require("telescope").setup({
+    require("telescope").setup({
       defaults = {
         sorting_strategy = "ascending",
         selection_strategy = "reset",
@@ -98,6 +33,18 @@ return {
             ["<c-k>"] = require("telescope.actions").move_selection_previous,
             ["<c-p>"] = require("telescope.actions.layout").toggle_preview,
           },
+        },
+        cache_picker = {
+          num_pickers = -1,
+        },
+        vimgrep_arguments = {
+          "rg",
+          "--color=never",
+          "--no-heading",
+          "--with-filename",
+          "--line-number",
+          "--column",
+          "--smart-case",
         },
       },
       pickers = {
@@ -145,6 +92,32 @@ return {
           },
           layout_strategy = "vertical",
           prompt_prefix = " (rg %) ",
+          prompt_title = "",
+          preview_title = "",
+        },
+        commands = {
+          layout_config = {
+            anchor = "CENTER",
+            prompt_position = "top",
+            mirror = true,
+            width = 0.75,
+            height = 0.75,
+          },
+          layout_strategy = "vertical",
+          prompt_prefix = " [commands] ",
+          prompt_title = "",
+          preview_title = "",
+        },
+        keymaps = {
+          layout_config = {
+            anchor = "CENTER",
+            prompt_position = "top",
+            mirror = true,
+            width = 0.75,
+            height = 0.75,
+          },
+          layout_strategy = "vertical",
+          prompt_prefix = " [keymaps] ",
           prompt_title = "",
           preview_title = "",
         },
@@ -265,8 +238,133 @@ return {
           prompt_title = "",
           preview_title = "",
         },
+        pickers = {
+          layout_config = {
+            anchor = "CENTER",
+            prompt_position = "top",
+            mirror = true,
+            width = 0.7,
+            height = 0.7,
+          },
+          layout_strategy = "vertical",
+          prompt_prefix = " (pickers) ",
+          prompt_title = "",
+          preview_title = "",
+        },
+        current_buffer_fuzzy_find = {
+          layout_config = {
+            anchor = "CENTER",
+            prompt_position = "top",
+            mirror = true,
+            width = 0.75,
+            height = 0.75,
+          },
+          layout_strategy = "vertical",
+          prompt_prefix = " (rg current buffer) ",
+          prompt_title = "",
+          preview_title = "",
+        },
+        current_buffer_tags = {
+          layout_config = {
+            anchor = "CENTER",
+            prompt_position = "top",
+            mirror = true,
+            width = 0.75,
+            height = 0.75,
+          },
+          layout_strategy = "vertical",
+          prompt_prefix = " (current buffer tags) ",
+          prompt_title = "",
+          preview_title = "",
+        },
       },
       extensions = {},
     })
+
+    local builtin = require("telescope.builtin")
+
+    -- keymaps
+    vim.keymap.set("n", "\\R", builtin.resume, {})
+    vim.keymap.set("n", "<leader>.", builtin.find_files, {})
+    vim.keymap.set("n", "<leader>,", builtin.buffers, {})
+    vim.keymap.set("n", "<leader>fr", builtin.oldfiles, {})
+    vim.keymap.set("n", "<leader>g", builtin.grep_string, {})
+    vim.keymap.set("n", "<leader>G", builtin.live_grep, {})
+    vim.keymap.set("n", "<leader>b", builtin.current_buffer_fuzzy_find, {})
+    vim.keymap.set("n", "<leader>t", builtin.current_buffer_tags, {})
+    vim.keymap.set("n", "<leader>C", builtin.commands, {})
+    vim.keymap.set("n", "<leader>m", builtin.keymaps, {})
+    vim.keymap.set("n", "<leader>fgs", builtin.git_status, {})
+    vim.keymap.set("n", "<leader>fgb", builtin.git_branches, {})
+    vim.keymap.set("n", "<leader>fgd", builtin.git_bcommits, {})
+    vim.keymap.set("n", "<leader>fm", builtin.man_pages, {})
+    vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
+    vim.keymap.set("n", "<leader>fH", builtin.highlights, {})
+    vim.keymap.set("n", "<leader>fd", builtin.diagnostics, {})
+    vim.keymap.set("n", "<leader>K", builtin.lsp_references, {})
+    vim.keymap.set("n", "<leader>i", builtin.lsp_implementations, {})
+    vim.keymap.set("n", "<c-n>", builtin.pickers, {})
+
+    vim.keymap.set(
+      "n",
+      "<leader>rgyaml",
+      "<cmd>Telescope live_grep vimgrep_arguments=rg,--color=never,--no-heading,--with-filename,--line-number,--column,--smart-case,-tyaml<cr>",
+      {}
+    )
+    vim.keymap.set(
+      "n",
+      "<leader>rgmd",
+      "<cmd>Telescope live_grep vimgrep_arguments=rg,--color=never,--no-heading,--with-filename,--line-number,--column,--smart-case,-tmarkdown<cr>",
+      {}
+    )
+    vim.keymap.set(
+      "n",
+      "<leader>rgpy",
+      "<cmd>Telescope live_grep vimgrep_arguments=rg,--color=never,--no-heading,--with-filename,--line-number,--column,--smart-case,-tpy<cr>",
+      {}
+    )
+    vim.keymap.set(
+      "n",
+      "<leader>rgrs",
+      "<cmd>Telescope live_grep vimgrep_arguments=rg,--color=never,--no-heading,--with-filename,--line-number,--column,--smart-case,-trust<cr>",
+      {}
+    )
+    vim.keymap.set(
+      "n",
+      "<leader>rgh",
+      "<cmd>Telescope live_grep vimgrep_arguments=rg,--color=never,--no-heading,--with-filename,--line-number,--column,--smart-case,-th<cr>",
+      {}
+    )
+    vim.keymap.set(
+      "n",
+      "<leader>rgcc",
+      "<cmd>Telescope live_grep vimgrep_arguments=rg,--color=never,--no-heading,--with-filename,--line-number,--column,--smart-case,--type-add=cc:*.cc,-tcc<cr>",
+      {}
+    )
+    vim.keymap.set(
+      "n",
+      "<leader>rghcc",
+      "<cmd>Telescope live_grep vimgrep_arguments=rg,--color=never,--no-heading,--with-filename,--line-number,--column,--smart-case,--type-add=cc:h,--type-add=cc:*.cc,-tcc<cr>",
+      {}
+    )
+
+    vim.keymap.set("n", "<leader>fn", function()
+      builtin.find_files(require("telescope.themes").get_dropdown({
+        layout_config = { prompt_position = "top", height = 0.35 },
+        layout_strategy = "bottom_pane",
+        prompt_prefix = " [nvim config files] ",
+        prompt_title = "",
+        cwd = "~/.config/nvim",
+      }))
+    end, {})
+
+    -- highlights
+    vim.api.nvim_set_hl(0, "TelescopeBorder", { link = "FloatBorder" })
+    vim.api.nvim_set_hl(0, "TelescopeSelectionCaret", { fg = "#30dff3" })
+    vim.api.nvim_set_hl(0, "TelescopeSelection", { link = "PmenuSel" })
+    vim.api.nvim_set_hl(0, "TelescopeMultiSelection", { link = "TelescopeSelection" })
+    vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = "#ff5555", bold = true })
+    vim.api.nvim_set_hl(0, "TelescopePromptPrefix", { fg = "#2ecc71", bold = true })
+    vim.api.nvim_set_hl(0, "TelescopePromptNormal", { link = "TelescopePromptPrefix" })
   end,
 }

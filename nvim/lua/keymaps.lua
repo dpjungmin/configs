@@ -28,6 +28,7 @@ map("n", "<bs>", "d0i<BS><space>")
 map("n", "<tab>", "<cmd>bnext<cr>") -- go to the next buffer
 map("n", "<s-tab>", "<cmd>bprevious<cr>") -- go to the previous buffer
 map("n", "q;", "q:") -- open the command-line window
+map("n", "<c-a>", "gg<s-v>G") -- select all
 
 -- window navigation
 map("n", "<left>", "<c-w>h")

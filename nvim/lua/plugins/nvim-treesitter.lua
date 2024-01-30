@@ -14,10 +14,10 @@ return {
     require("nvim-treesitter.configs").setup({
       parser_install_dir = parser_install_dir,
       ensure_installed = "all",
-      ignore_install = { "erlang" },
+      ignore_install = { "erlang", "java" },
       highlight = {
         enable = true,
-        disable = { "c", "cc", "cpp", "vimdoc", "lua" },
+        disable = {},
         additional_vim_regex_highlighting = false,
       },
       autotag = {

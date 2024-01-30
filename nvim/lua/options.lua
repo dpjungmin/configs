@@ -13,6 +13,9 @@ vim.opt.foldmethod = "syntax"
 vim.opt.foldlevelstart = 0
 vim.opt.foldenable = true
 
+vim.opt.undodir = "~/.vimdid"
+vim.opt.undofile = true
+
 vim.opt.tags = { "tags", ".tags", ".git/tags", ".git/.tags" } -- ctags
 vim.opt.spell = true
 vim.opt.mouse = "a"
@@ -60,3 +63,4 @@ vim.opt.hidden = true
 vim.opt.signcolumn = "yes"
 vim.opt.laststatus = 1
 vim.opt.cmdheight = 0
+vim.opt.gdefault = true

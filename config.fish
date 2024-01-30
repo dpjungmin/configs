@@ -1,14 +1,21 @@
 # aliases
 alias ..="cd .. && pwd"
-alias ls="exa -F"
-alias la="exa -aF"
-alias ll="exa -lF"
-alias lla="exa -alF"
 
+alias ls="eza --all"
+alias ld="eza --all --only-dirs"
+alias lf="eza --all --only-files"
+alias ll="eza --long --modified --git --time-style=iso --group-directories-first"
+alias lla="eza --long --modified --git --time-style=iso --group-directories-first --all"
+alias tree="eza --tree --level=2"
+alias treel="eza --tree --level=2 --long --modified --git --time-style=iso --group-directories-first"
+
+alias g="git"
+alias s="git show"
 alias ga="git add"
 alias gc="git checkout"
 alias gcm="git commit --message"
 alias gs="git status"
+alias gss="git stash show -p"
 alias gd="git diff"
 alias gD="git diff --staged"
 alias gb="git blame"
@@ -19,14 +26,13 @@ alias gfp="git push --force-with-lease origin HEAD"
 alias gr="git rebase --interactive"
 alias grc="git rebase --continue"
 alias gw="git worktree"
-alias s="git show"
-alias gss="git stash show -p"
+alias gwa="git worktree add"
+alias gwr="git worktree remove"
 
-alias c=cargo
-alias tree="et --icons --sort size"
+alias c="cargo"
 alias vi="nvim --clean"
-alias vim=nvim
-alias cat="bat --plain --theme zenburn"
+alias vim="nvim"
+alias cat="bat --plain --theme TwoDark"
 alias rgf="rg --files-with-matches"
 
 # environment variables
@@ -40,18 +46,6 @@ set -x PATH $PATH /usr/local/bin
 set -x PATH $PATH ~/.local/bin
 set -x PATH $PATH ~/.cargo/bin
 set -x PATH $PATH ~/go/bin
-
-# machine specific configurations
-switch (uname)
-    case Linux
-        alias wezterm="flatpak run org.wezfurlong.wezterm"
-        alias sound=alsamixer
-    case Darwin
-        set -x PATH $PATH /opt/homebrew/bin
-        set -x PATH $PATH ~/opt/anaconda3/bin
-        set -x PATH $PATH (brew --prefix)/opt/python/libexec/bin
-    case '*'
-end
 
 function fish_greeting
     set os string join '.' (uname -s) (uname -m)
@@ -90,6 +84,18 @@ end
 function nvim
     set TERM wezterm
     command nvim $argv
+end
+
+# machine specific configurations
+switch (uname)
+    case Linux
+        alias wezterm="flatpak run org.wezfurlong.wezterm"
+        alias sound=alsamixer
+    case Darwin
+        set -x PATH $PATH /opt/homebrew/bin
+        set -x PATH $PATH ~/opt/anaconda3/bin
+        set -x PATH $PATH (brew --prefix)/opt/python/libexec/bin
+    case '*'
 end
 
 zoxide init fish | source

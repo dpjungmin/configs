@@ -52,12 +52,16 @@ end
 local function main()
   check()
 
+  if vim.loader then
+    vim.loader.enable()
+  end
+
   vim.g.session_dir = vim.fn.stdpath("data") .. "/sessions"
   vim.fn.mkdir(vim.g.session_dir, "p")
 
   require("options")
   require("keymaps")
-  require("autocommands")
+  require("autocmds")
   load_plugins()
   require("highlights")
 end

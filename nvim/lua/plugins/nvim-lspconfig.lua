@@ -72,6 +72,9 @@ return {
         vim.keymap.set("n", "\\\\f", function()
           vim.lsp.buf.format({ async = true })
         end, opts)
+
+        local client = vim.lsp.get_client_by_id(ev.data.client_id)
+        client.server_capabilities.semanticTokensProvider = nil
       end,
     })
 

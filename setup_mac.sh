@@ -6,11 +6,11 @@ parse_args() {
       -c | --config)
         setup_configurations
         exit 0
-  ;;
+        ;;
       *)
         echo "invalid argument: $1"
         exit 1
-  ;;
+        ;;
     esac
     shift
   done
@@ -22,6 +22,9 @@ init() {
 
 install_packages() {
   brew bundle install
+
+  local crates=(tealdeer)
+  cargo install ${crates[@]}
 }
 
 setup_configurations() {

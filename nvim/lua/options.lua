@@ -13,7 +13,7 @@ vim.opt.foldmethod = "syntax"
 vim.opt.foldlevelstart = 0
 vim.opt.foldenable = true
 
-vim.opt.undodir = "~/.vimdid"
+vim.opt.undodir = vim.fn.expand("~/.vimdid")
 vim.opt.undofile = true
 
 vim.opt.tags = { "tags", ".tags", ".git/tags", ".git/.tags" } -- ctags

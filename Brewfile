@@ -37,6 +37,7 @@ brew "git-delta"
 brew "eza"
 brew "bat"
 brew "bat-extras"
+brew "zoxide"
 
 cask "amethyst"
 cask "font-lekton-nerd-font"

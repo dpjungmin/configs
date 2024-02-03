@@ -40,6 +40,7 @@ set -gx TERM screen-256color
 set -gx EDITOR nvim
 set -Ux RUST_BACKTRACE 1
 set -Ux RIPGREP_CONFIG_PATH $HOME/.ripgreprc
+set -Ux MANPAGER "sh -c 'col -bx | bat --plain --language man --theme TwoDark'"
 
 # paths
 set -x PATH $PATH /usr/local/bin

@@ -35,6 +35,9 @@ setup_configurations() {
   [[ ! -f "$HOME/themes.gitconfig" ]] && ln -s $(pwd)/themes.gitconfig $HOME/themes.gitconfig
   [[ ! -f "$HOME/.ripgreprc" ]] && ln -s $(pwd)/.ripgreprc $HOME/.ripgreprc
 
+  rm -rf $HOME/.config/atuin
+  ln -s $(pwd)/atuin $HOME/.config/atuin
+
   rm $HOME/.config/fish/config.fish
   ln -s $(pwd)/config.fish $HOME/.config/fish/config.fish
 }

@@ -1,0 +1,7 @@
+update_check = true
+search_mode = "fuzzy"
+style = "compact"
+invert = true
+show_help = false
+keymap_mode = "vim-normal"
+prefers_reduced_motion = true

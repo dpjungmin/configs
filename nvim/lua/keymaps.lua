@@ -29,6 +29,10 @@ map("n", "<tab>", "<cmd>bnext<cr>") -- go to the next buffer
 map("n", "<s-tab>", "<cmd>bprevious<cr>") -- go to the previous buffer
 map("n", "q;", "q:") -- open the command-line window
 map("n", "<c-a>", "gg<s-v>G") -- select all
+map("n", "\\s", "<cmd>Explore<cr>") -- explore directory of current file
+map("n", "\\S", "<cmd>Sexplore<cr>") -- split and explore current file's directory
+map("n", "\\v", "<cmd>Vexplore<cr>") -- vertical split and explore
+map("n", "\\ ", "<cmd>Rexplore<cr>") -- vertical split and explore
 
 -- window navigation
 map("n", "<left>", "<c-w>h")

@@ -43,6 +43,7 @@ brew "bat"
 brew "bat-extras"
 brew "zoxide"
 brew "atuin"
+brew "just"
 
 cask "amethyst"
 cask "font-lekton-nerd-font"

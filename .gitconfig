@@ -9,6 +9,7 @@
     a = config --get-regexp alias
     root = rev-parse --show-toplevel
     path = rev-parse --show-prefix
+    bb = !better_git_branch.sh
 
 [init]
     defaultBranch = main

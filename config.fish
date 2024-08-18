@@ -47,6 +47,7 @@ set -x PATH $PATH /usr/local/bin
 set -x PATH $PATH ~/.local/bin
 set -x PATH $PATH ~/.cargo/bin
 set -x PATH $PATH ~/go/bin
+set -x PATH $PATH ~/configs/bin
 
 function fish_greeting
     set os string join '.' (uname -s) (uname -m)

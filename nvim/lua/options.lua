@@ -18,6 +18,7 @@ vim.opt.undofile = true
 
 vim.opt.tags = { "tags", ".tags", ".git/tags", ".git/.tags" } -- ctags
 vim.opt.spell = true
+vim.opt.spelllang = { "en", "cjk" }
 vim.opt.mouse = "a"
 vim.opt.mousemodel = "popup"
 vim.opt.pumheight = 10
@@ -43,7 +44,6 @@ vim.opt.virtualedit = "block"
 vim.opt.tildeop = true
 vim.opt.startofline = false
 vim.opt.synmaxcol = 200
-vim.opt.spelllang = { "en", "cjk" }
 vim.opt.undofile = true
 vim.opt.showmode = false
 vim.opt.title = true

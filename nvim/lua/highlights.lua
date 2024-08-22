@@ -142,3 +142,9 @@ hl("PmenuThumb", { bg = "#ecf6f2" })
 hl("WildMenu", { link = "Pmenu" })
 hl("NormalFloat", { fg = "#ecf6f2" })
 hl("FloatBorder", { fg = "#505b92" })
+
+-- spelling
+hl("SpellBad", { sp = "NvimLightRed", undercurl = true }) -- For badly spelled words.
+hl("SpellCap", { sp = "NvimLightYellow", undercurl = true }) -- For words that start with a capital letter that shouldn’t.
+hl("SpellRare", { sp = "NvimLightCyan", undercurl = true }) -- For rare or technical words.
+hl("SpellLocal", { sp = "NvimLightGreen", undercurl = true }) -- For words that are recognized by a local dictionary but not the main one.

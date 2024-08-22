@@ -6,6 +6,8 @@ alias ld="eza --all --only-dirs"
 alias lf="eza --all --only-files"
 alias ll="eza --long --modified --git --time-style=iso --group-directories-first"
 alias lla="eza --long --modified --git --time-style=iso --group-directories-first --all"
+alias lld="eza --long --modified --git --time-style=iso --group-directories-first --all --only-dirs"
+alias llf="eza --long --modified --git --time-style=iso --group-directories-first --all --only-files"
 alias tree="eza --tree --level=2"
 alias treel="eza --tree --level=2 --long --modified --git --time-style=iso --group-directories-first"
 

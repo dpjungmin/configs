@@ -100,6 +100,16 @@ return {
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
     local lspconfig = require("lspconfig")
 
+    -- rust
+    lspconfig.rust_analyzer.setup({
+      capabilities = capabilities,
+      flags = { debounce_text_changes = 150 },
+      cmd = { "rust-analyzer" },
+      filetypes = { "rust" },
+      root_dir = require("lspconfig.util").root_pattern("Cargo.toml", "rust-project.json"),
+      single_file_support = true,
+    })
+
     -- bash
     lspconfig.bashls.setup({
       capabilities = capabilities,

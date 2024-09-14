@@ -90,7 +90,7 @@ return {
         untracked = { text = "┆" },
       },
       signs_staged_enable = true,
-      signcolumn = false,
+      signcolumn = true,
       numhl = false,
       linehl = false,
       word_diff = false,

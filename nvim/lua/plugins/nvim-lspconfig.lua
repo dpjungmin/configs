@@ -104,10 +104,16 @@ return {
     lspconfig.rust_analyzer.setup({
       capabilities = capabilities,
       flags = { debounce_text_changes = 150 },
-      cmd = { "rust-analyzer" },
       filetypes = { "rust" },
       root_dir = require("lspconfig.util").root_pattern("Cargo.toml", "rust-project.json"),
       single_file_support = true,
+      settings = {
+        ["rust-analyzer"] = {
+          checkOnSave = {
+            command = "clippy", -- Automatically run `clippy` on save for linting
+          },
+        },
+      },
     })
 
     -- bash

@@ -46,7 +46,7 @@ hl("MatchAccent", { fg = "#ff5555", bold = true })
 hl("MatchAccentSel", { fg = "#ff5555", bg = "#404b82", bold = true })
 
 -- syntax
-hl("Comment", { fg = "#4a90e2" })
+hl("Comment", { fg = "#839496" })
 hl("Constant", { fg = "#dcbdfb", bold = true })
 hl("Character", { fg = "#ff938a" })
 hl("String", { fg = "#e9967a" })
@@ -60,7 +60,7 @@ hl("Conditional", { fg = "#ba55d3", bold = true }) -- if-else, switch
 hl("Repeat", { link = "Conditional" }) -- for, do-while
 hl("Label", { link = "Conditional" }) -- case, default
 hl("Statement", { fg = "#8fbc8f" })
-hl("Operator", { fg = "#e0f0ef" }) -- +, -, *, /
+hl("Operator", { fg = "#abb2bf" }) -- +, -, *, /
 hl("Exception", { fg = "#30dff3" })
 hl("Include", { fg = "#add8e6" })
 hl("PreProc", { fg = "#cad8d2" })
@@ -82,6 +82,15 @@ hl("Underlined", { underline = true })
 hl("Bold", { bold = true })
 hl("Italic", { italic = true })
 
+-- treesitter (cpp)
+hl("@type.cpp", { fg = "#cd5c5c", bold = true })
+hl("@type.qualifier.cpp", { fg = "#ff6347", bold = true })
+hl("@variable.cpp", { fg = "#61afef" })
+hl("@field.cpp", { fg = "#56b6c2" })
+hl("@namespace.cpp", { fg = "#c678dd" })
+
+-- treesitter (rust)
+
 -- editor
 hl("Normal", { fg = "#ffffff", bg = "#2b2539" })
 hl("NormalNC", { link = "Normal" })
@@ -91,6 +100,8 @@ hl("lCursor", { link = "Cursor" })
 hl("CursorIM", { link = "Cursor" })
 hl("TermCursor", { link = "Cursor" })
 hl("TermCursorNC", { bg = "#ff8c00" })
+hl("StatusLine", { fg = "#ffffff", bg = "#3c364a" })
+hl("StatusLineNC", { link = "Normal" })
 hl("LineNr", { fg = "#adbac7" })
 hl("LineNrAbove", { fg = "#636e7b" })
 hl("LineNrBelow", { fg = "#636e7b" })
@@ -102,6 +113,7 @@ hl("Conceal", { link = "Normal" })
 hl("SignColumn", {})
 hl("SignColumnSB", { link = "SignColumn" })
 hl("VertSplit", { fg = "#333c56" })
+hl("WinSeparator", { link = "VertSplit" }) -- introduced since v0.10+
 hl("Title", { fg = "#6cb6ff", bold = true })
 hl("Visual", { bg = "#263e47" })
 hl("VisualNOS", { link = "Visual" })

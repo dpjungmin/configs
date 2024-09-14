@@ -47,6 +47,7 @@ local function load_plugins()
   })
 
   vim.keymap.set("n", "<leader>L", "<cmd>Lazy<cr>", { silent = true })
+  vim.api.nvim_set_hl(0, "LazyBackdrop", { fg = "#2b2539" })
 end
 
 local function main()

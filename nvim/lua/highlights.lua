@@ -148,3 +148,6 @@ hl("SpellBad", { sp = "NvimLightRed", undercurl = true }) -- For badly spelled w
 hl("SpellCap", { sp = "NvimLightYellow", undercurl = true }) -- For words that start with a capital letter that shouldn’t.
 hl("SpellRare", { sp = "NvimLightCyan", undercurl = true }) -- For rare or technical words.
 hl("SpellLocal", { sp = "NvimLightGreen", undercurl = true }) -- For words that are recognized by a local dictionary but not the main one.
+
+-- LSP
+hl("LspInlayHint", { fg = "#2ecc71" })

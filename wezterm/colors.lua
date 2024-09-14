@@ -26,7 +26,7 @@ local palette = {
 
   accent = "#30dff3",
   border = "#000000",
-  selection = "#263e47",
+  selection = "#e58a50",
   gradient = {
     "#2b2539",
     "#2b2539",
@@ -43,7 +43,7 @@ function module.paint(config)
     cursor_bg = "#00ff00",
     cursor_border = "#ff0000",
 
-    selection_fg = "none",
+    selection_fg = palette.background,
     selection_bg = palette.selection,
 
     scrollbar_thumb = palette.black,

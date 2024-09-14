@@ -72,6 +72,9 @@ return {
         vim.keymap.set("n", "\\\\f", function()
           vim.lsp.buf.format({ async = true })
         end, opts)
+        vim.keymap.set("n", "<leader>li", function()
+          vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+        end, { desc = "Toggle inlay hints" })
 
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
         client.server_capabilities.semanticTokensProvider = nil
@@ -141,7 +144,7 @@ return {
     })
 
     -- typescript
-    lspconfig.tsserver.setup({
+    lspconfig.ts_ls.setup({
       capabilities = capabilities,
       flags = { debounce_text_changes = 150 },
       cmd = { "typescript-language-server", "--stdio" },

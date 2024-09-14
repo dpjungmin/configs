@@ -74,44 +74,26 @@ return {
   config = function()
     require("gitsigns").setup({
       signs = {
-        add = {
-          hl = "GitSignsAdd",
-          text = "▎",
-          numhl = "GitSignsAddNr",
-          linehl = "GitSignsAddLn",
-        },
-        change = {
-          hl = "GitSignsChange",
-          text = "▎",
-          numhl = "GitSignsChangeNr",
-          linehl = "GitSignsChangeLn",
-        },
-        delete = {
-          hl = "GitSignsDelete",
-          text = "_",
-          numhl = "GitSignsDeleteNr",
-          linehl = "GitSignsDeleteLn",
-        },
-        topdelete = {
-          hl = "GitSignsDelete",
-          text = "‾",
-          numhl = "GitSignsDeleteNr",
-          linehl = "GitSignsDeleteLn",
-        },
-        changedelete = {
-          hl = "GitSignsChange",
-          text = "▎",
-          numhl = "GitSignsChangeNr",
-          linehl = "GitSignsChangeLn",
-        },
-        untracked = {
-          hl = "GitSignsAdd",
-          text = "▎",
-          numhl = "GitSignsAddNr",
-          linehl = "GitSignsAddLn",
-        },
+        add = { text = "▎" },
+        change = { text = "▎" },
+        delete = { text = "_" },
+        topdelete = { text = "‾" },
+        changedelete = { text = "~" },
+        untracked = { text = "┆" },
       },
-      signcolumn = true,
+      signs_staged = {
+        add = { text = "▎" },
+        change = { text = "▎" },
+        delete = { text = "_" },
+        topdelete = { text = "‾" },
+        changedelete = { text = "~" },
+        untracked = { text = "┆" },
+      },
+      signs_staged_enable = true,
+      signcolumn = false,
+      numhl = false,
+      linehl = false,
+      word_diff = false,
       watch_gitdir = {
         interval = 1000,
         follow_files = true,
@@ -135,11 +117,7 @@ return {
         row = 0,
         col = 1,
       },
-      yadm = { enable = false },
       on_attach = on_attach,
-      numhl = false,
-      linehl = false,
-      word_diff = false,
       current_line_blame = false,
     })
 
@@ -147,16 +125,19 @@ return {
     vim.api.nvim_set_hl(0, "GitSignsCurrentLineBlame", { fg = "#2ecc71" })
 
     vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = "#46954a" })
+    vim.api.nvim_set_hl(0, "GitSignsStagedAdd", { fg = "#025106" })
     vim.api.nvim_set_hl(0, "GitSignsAddInline", { fg = "#ffffff", bg = "#46954a" })
     vim.api.nvim_set_hl(0, "GitSignsAddLnInline", { link = "GitSignsAddInline" })
     vim.api.nvim_set_hl(0, "GitSignsAddLnVirtLnInline", { link = "GitSignsAddInline" })
 
     vim.api.nvim_set_hl(0, "GitSignsChange", { fg = "#ae7c14" })
+    vim.api.nvim_set_hl(0, "GitSignsStagedChange", { fg = "#6a3900" })
     vim.api.nvim_set_hl(0, "GitSignsChangeInline", { fg = "#ffffff", bg = "#ae7c14" })
     vim.api.nvim_set_hl(0, "GitSignsChangeLnInline", { link = "GitSignsChangeInline" })
     vim.api.nvim_set_hl(0, "GitSignsChangeLnVirtLnInline", { link = "GitSignsChangeInline" })
 
     vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = "#e5534b" })
+    vim.api.nvim_set_hl(0, "GitSignsStagedDelete", { fg = "#a11007" })
     vim.api.nvim_set_hl(0, "GitSignsDeleteInline", { fg = "#ffffff", bg = "#e5534b" })
     vim.api.nvim_set_hl(0, "GitSignsDeleteLnInline", { link = "GitSignsDeleteInline" })
     vim.api.nvim_set_hl(0, "GitSignsDeleteLnVirtLnInline", { link = "GitSignsDeleteInline" })

@@ -47,4 +47,53 @@ function M.create_dir(path)
   return ok
 end
 
+function M.load_plugins()
+  local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
+  if not (vim.uv or vim.loop).fs_stat(lazy_path) then
+    local out = vim.fn.system({
+      "git",
+      "clone",
+      "--filter=blob:none",
+      "https://github.com/folke/lazy.nvim.git",
+      "--branch=stable",
+      lazy_path,
+    })
+    if vim.v.shell_error ~= 0 then
+      vim.api.nvim_echo({
+        { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+        { out, "WarningMsg" },
+        { "\nPress any key to exit..." },
+      }, true, {})
+      vim.fn.getchar()
+      os.exit(1)
+    end
+  end
+
+  vim.opt.runtimepath:prepend({ lazy_path })
+
+  require("lazy").setup({
+    spec = {
+      { import = "plugins" },
+    },
+    lockfile = vim.fn.stdpath("config") .. "/lazy-lock.json",
+    ui = {
+      border = "single",
+    },
+  })
+
+  vim.keymap.set("n", "<leader>L", "<cmd>Lazy<cr>", { silent = true })
+  vim.api.nvim_set_hl(0, "LazyBackdrop", { fg = "#2b2539" })
+end
+
+function M.reset_highlights()
+  -- Reset all highlights to their defaults.
+  vim.cmd("highlight clear")
+
+  -- Set default colors back.
+  if vim.fn.exists("syntax_on") then
+    vim.cmd("syntax reset")
+  end
+end
+
 return M

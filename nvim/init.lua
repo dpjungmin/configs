@@ -2,35 +2,6 @@ function P(x)
   print(vim.inspect(x))
 end
 
-local function load_plugins()
-  local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-
-  if not vim.loop.fs_stat(lazy_path) then
-    vim.notify("downloading `lazy.nvim`...")
-    vim.fn.system({
-      "git",
-      "clone",
-      "--filter=blob:none",
-      "https://github.com/folke/lazy.nvim.git",
-      "--branch=stable",
-      lazy_path,
-    })
-  end
-
-  vim.opt.runtimepath:prepend({ lazy_path })
-
-  require("lazy").setup("plugins", {
-    root = vim.fn.stdpath("data") .. "/lazy",
-    lockfile = vim.fn.stdpath("config") .. "/lazy-lock.json",
-    ui = {
-      border = "single",
-    },
-  })
-
-  vim.keymap.set("n", "<leader>L", "<cmd>Lazy<cr>", { silent = true })
-  vim.api.nvim_set_hl(0, "LazyBackdrop", { fg = "#2b2539" })
-end
-
 local function bootstrap()
   -- Enable the module loader cache for faster Lua module loading.
   if vim.loader and not vim.loader.enabled then
@@ -60,7 +31,11 @@ local function bootstrap()
   require("options")
   require("keymaps")
   require("autocmds")
-  -- load_plugins()
+
+  utils.reset_highlights()
+
+  -- utils.load_plugins()
+
   require("highlights")
 end
 

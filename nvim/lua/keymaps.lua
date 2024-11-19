@@ -1,3 +1,5 @@
+local constants = require("constants")
+
 local function map(mode, lhs, rhs, opts)
   local options = { noremap = true, silent = true }
 
@@ -30,11 +32,15 @@ map("n", "<s-tab>", "<cmd>bprevious<cr>") -- go to the previous buffer
 map("n", "q;", "q:") -- open the command-line window
 map("n", "<c-a>", "gg<s-v>G") -- select all
 
--- file navigation
-map("n", "\\s", "<cmd>Explore<cr>") -- explore directory of current file
-map("n", "\\S", "<cmd>Sexplore<cr>") -- split and explore current file's directory
-map("n", "\\v", "<cmd>Vexplore<cr>") -- vertical split and explore
-map("n", "\\ ", "<cmd>Rexplore<cr>") -- vertical split and explore
+-- session management
+map("n", "\\ss", ":mks! " .. constants.SESSION_DIR .. "/") -- save session
+map("n", "\\so", ":so! " .. constants.SESSION_DIR .. "/") -- open session
+
+-- netrw
+map("n", "<leader>s", "<cmd>Explore<cr>") -- explore directory of current file
+map("n", "<leader>S", "<cmd>Sexplore<cr>") -- split and explore current file's directory
+map("n", "<leader>v", "<cmd>Vexplore<cr>") -- vertical split and explore
+map("n", "<leader>r", "<cmd>Rexplore<cr>") -- vertical split and explore
 
 -- window navigation
 map("n", "<left>", "<c-w>h")

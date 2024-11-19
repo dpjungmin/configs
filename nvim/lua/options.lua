@@ -1,3 +1,5 @@
+vim.opt.wildmenu = true -- enable command-line completion
+vim.opt.wildmode = "longest:full,full"
 vim.opt.wildignorecase = true
 vim.opt.wildignore = { "*.o", "*.obj", "*.dylib", "*.bin" }
 vim.opt.wildignore:append({ "*/.git/*", "*/__pycache__/*", "*/build/**", "*/node_modules/*" })
@@ -17,7 +19,7 @@ vim.opt.undodir = vim.fn.expand("~/.vimdid")
 vim.opt.undofile = true
 
 vim.opt.tags = { "tags", ".tags", ".git/tags", ".git/.tags" } -- ctags
-vim.opt.spell = true
+vim.opt.spell = false
 vim.opt.spelllang = { "en", "cjk" }
 vim.opt.mouse = "a"
 vim.opt.mousemodel = "popup"
@@ -38,6 +40,8 @@ vim.opt.confirm = true
 vim.opt.list = true
 vim.opt.listchars = { nbsp = "¬", extends = "»", precedes = "«", trail = "•", tab = ".." }
 vim.opt.scrolloff = 5
+vim.opt.sidescrolloff = 5
+vim.opt.scroll = 10
 vim.opt.swapfile = false
 vim.opt.autowrite = true
 vim.opt.virtualedit = "block"
@@ -64,3 +68,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.laststatus = 1
 vim.opt.cmdheight = 0
 vim.opt.gdefault = true
+vim.opt.hlsearch = true
+vim.opt.incsearch = true
+vim.opt.updatetime = 300 -- ms
+vim.opt.timeoutlen = 500 -- ms

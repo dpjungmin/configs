@@ -1,15 +1,3 @@
-local function reset_highlights()
-  -- reset all highlights to the defaults
-  vim.cmd("highlight clear")
-
-  -- get default colors back
-  if vim.fn.exists("syntax_on") then
-    vim.cmd("syntax reset")
-  end
-end
-
-vim.g.colors_name = "dpjungmin"
-
 -- • {name}   Highlight group name, e.g. "ErrorMsg"
 -- • {val}    Highlight definition map, accepts the following keys:
 --             • fg (or foreground): color name or "#RRGGBB", see note.
@@ -91,6 +79,15 @@ hl("@namespace.cpp", { fg = "#c678dd" })
 
 -- treesitter (rust)
 
+-- treesitter (lua)
+hl("@keyword.lua", { fg = "#d19a66" })
+hl("@keyword.function.lua", { fg = "#61afef" })
+hl("@function.lua", { fg = "#61afef", bold = true })
+hl("@function.builtin.lua", { fg = "#e06c75", bold = true })
+hl("@field.lua", { fg = "#d19a66" })
+hl("@variable.lua", { fg = "#ffcc00" })
+hl("@conditional.lua", { fg = "#c586c0", bold = true })
+
 -- editor
 hl("Normal", { fg = "#ffffff", bg = "#2b2539" })
 hl("NormalNC", { link = "Normal" })
@@ -101,7 +98,7 @@ hl("CursorIM", { link = "Cursor" })
 hl("TermCursor", { link = "Cursor" })
 hl("TermCursorNC", { bg = "#ff8c00" })
 hl("StatusLine", { fg = "#ffffff", bg = "#3c364a" })
-hl("StatusLineNC", { link = "Normal" })
+hl("StatusLineNC", { link = "StatusLine" })
 hl("LineNr", { fg = "#adbac7" })
 hl("LineNrAbove", { fg = "#636e7b" })
 hl("LineNrBelow", { fg = "#636e7b" })

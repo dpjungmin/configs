@@ -97,3 +97,17 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufEnter" }, {
   desc = "set filetype for astro files",
   command = "set filetype=astro",
 })
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  group = vim.api.nvim_create_augroup("netrw", { clear = true }),
+  pattern = "netrw",
+  desc = "remap only in netrw buffers",
+  callback = function()
+    vim.keymap.set(
+      "n",
+      "<tab>",
+      "<plug>NetrwLocalBrowseCheck",
+      { buffer = true, noremap = true, silent = true }
+    )
+  end,
+})

@@ -1,5 +1,3 @@
--- https://github.com/lewis6991/gitsigns.nvim
-
 local function on_attach(_)
   local gs = package.loaded.gitsigns
 

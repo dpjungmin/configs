@@ -1,20 +1,11 @@
-local function map(mode, lhs, rhs, opts)
-  local options = { noremap = true, silent = true }
-
-  if opts then
-    options = vim.tbl_extend("force", options, opts)
-  end
-
-  vim.keymap.set(mode, lhs, rhs, options)
-end
-
-vim.api.nvim_set_var("mapleader", " ")
+local constants = require("constants")
+local map = require("utils").set_keymap
 
 map("n", "<leader>?", "<cmd>Inspect<cr>")
 map("n", "<leader>d", "<cmd>bdelete<cr>") -- delete current buffer
 map("n", "<leader>c", "<cmd>close<cr>") -- close current window
 map("n", "<leader>ov", "<cmd>vsplit %<cr><c-w>h") -- close current window
-map("n", "<leader>]", "g<c-]>", { noremap = true }) -- ctags
+map("n", "<leader>]", "g<c-]>") -- ctags
 map("n", "<leader><leader>", "a<space><esc>h") -- insert a space in front of the cursor
 map("n", "\\w", "<cmd>update<cr>") -- write on change (current buffer)
 map("n", "\\q", "<cmd>x<cr>") -- write on change and quit (current buffer)
@@ -29,10 +20,20 @@ map("n", "<tab>", "<cmd>bnext<cr>") -- go to the next buffer
 map("n", "<s-tab>", "<cmd>bprevious<cr>") -- go to the previous buffer
 map("n", "q;", "q:") -- open the command-line window
 map("n", "<c-a>", "gg<s-v>G") -- select all
-map("n", "\\s", "<cmd>Explore<cr>") -- explore directory of current file
-map("n", "\\S", "<cmd>Sexplore<cr>") -- split and explore current file's directory
-map("n", "\\v", "<cmd>Vexplore<cr>") -- vertical split and explore
-map("n", "\\ ", "<cmd>Rexplore<cr>") -- vertical split and explore
+
+-- wildmenu
+map("c", "<tab>", "pumvisible() ? '<c-n>' : '<c-r>=getcmdline()<cr>'", { expr = true })
+map("c", "<s-tab>", "pumvisible() ? '<c-p>' : '<left>'", { expr = true })
+
+-- session management
+map("n", "\\ss", ":mks! " .. constants.SESSION_DIR .. "/") -- save session
+map("n", "\\so", ":so! " .. constants.SESSION_DIR .. "/") -- open session
+
+-- netrw
+map("n", "<leader>s", "<cmd>Explore<cr>") -- explore directory of current file
+map("n", "<leader>S", "<cmd>Sexplore<cr>") -- split and explore current file's directory
+map("n", "<leader>v", "<cmd>Vexplore<cr>") -- vertical split and explore
+map("n", "<leader>r", "<cmd>Rexplore<cr>") -- vertical split and explore
 
 -- window navigation
 map("n", "<left>", "<c-w>h")

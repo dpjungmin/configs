@@ -1,5 +1,3 @@
--- https://github.com/gelguy/wilder.nvim
-
 return {
   "gelguy/wilder.nvim",
   event = "VimEnter",

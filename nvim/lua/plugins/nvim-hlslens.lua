@@ -1,5 +1,3 @@
--- https://github.com/kevinhwang91/nvim-hlslens
-
 return {
   "kevinhwang91/nvim-hlslens",
   config = function()
@@ -36,7 +34,7 @@ return {
 
     -- highlights
     vim.api.nvim_set_hl(0, "HlSearchNear", { link = "IncSearch" })
-    vim.api.nvim_set_hl(0, "HlSearchLens", { fg = "#1e7c61" })
+    vim.api.nvim_set_hl(0, "HlSearchLens", { fg = "#1e6961" })
     vim.api.nvim_set_hl(0, "HlSearchLensNear", { fg = "#2efc71" })
   end,
 }

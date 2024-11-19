@@ -3,8 +3,21 @@ return {
   "nvim-lua/plenary.nvim",
   "kyazdani42/nvim-web-devicons",
   "itchyny/vim-highlighturl",
-  "tpope/vim-commentary",
+  "tpope/vim-commentary", -- cs"'
   "tpope/vim-surround",
+
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = function()
+      require("nvim-autopairs").setup({})
+
+      local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+      local cmp = require("cmp")
+
+      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
+    end,
+  },
 
   {
     "norcalli/nvim-colorizer.lua",

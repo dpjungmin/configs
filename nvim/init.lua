@@ -20,6 +20,7 @@ local function bootstrap()
   utils.reset_highlights()
 
   -- Configure built-in global variables.
+  vim.g.colors_name = "dpark"
   vim.g.mapleader = " "
   vim.g.maplocalleader = " "
   vim.g.netrw_banner = 0 -- disable the banner

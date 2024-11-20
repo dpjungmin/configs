@@ -4,22 +4,6 @@ return {
     "tpope/vim-repeat",
   },
   config = function()
-    -- Until neovim/neovim#20793 (https://github.com/neovim/neovim/issues/20793) is fixed:
-    -- Hide the (real) cursor when leaping, and restore it afterwards.
-    vim.api.nvim_create_autocmd("User", {
-      pattern = "LeapEnter",
-      callback = function()
-        vim.cmd.hi("Cursor", "blend=100")
-        vim.opt.guicursor:append({ "a:Cursor/lCursor" })
-      end,
-    })
-    vim.api.nvim_create_autocmd("User", {
-      pattern = "LeapLeave",
-      callback = function()
-        vim.cmd.hi("Cursor", "blend=0")
-        vim.opt.guicursor:remove({ "a:Cursor/lCursor" })
-      end,
-    })
     vim.api.nvim_create_autocmd("ColorScheme", {
       pattern = "*",
       callback = function()
@@ -32,7 +16,6 @@ return {
     leap.opts.case_sensitive = false
     leap.opts.equivalence_classes = { " \t\r\n" }
     leap.opts.max_phase_one_targets = nil
-    leap.opts.highlight_unlabeled_phase_one_targets = false
     leap.opts.max_highlighted_traversal_targets = 10
     leap.opts.substitute_chars = {}
     leap.opts.safe_labels = "sfnut/SFNLHMUGTZ?"
@@ -63,7 +46,15 @@ return {
     -- highlights
     vim.api.nvim_set_hl(0, "LeapBackdrop", { fg = "grey" })
     vim.api.nvim_set_hl(0, "LeapMatch", { fg = "white", bold = true, nocombine = true })
-    vim.api.nvim_set_hl(0, "LeapLabelPrimary", { fg = "red", bold = true, nocombine = true })
-    vim.api.nvim_set_hl(0, "LeapLabelSecondary", { fg = "blue", bold = true, nocombine = true })
+    vim.api.nvim_set_hl(
+      0,
+      "LeapLabelPrimary",
+      { fg = "black", bg = "NvimLightYellow", bold = true, nocombine = true }
+    )
+    vim.api.nvim_set_hl(
+      0,
+      "LeapLabelSecondary",
+      { fg = "black", bg = "NvimLightCyan", bold = true, nocombine = true }
+    )
   end,
 }

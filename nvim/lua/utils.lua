@@ -106,4 +106,8 @@ function M.reset_highlights()
   end
 end
 
+function M.set_highlight(name, val)
+  vim.api.nvim_set_hl(0, name, val)
+end
+
 return M

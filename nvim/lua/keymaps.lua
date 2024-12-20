@@ -20,6 +20,8 @@ map("n", "<tab>", "<cmd>bnext<cr>") -- go to the next buffer
 map("n", "<s-tab>", "<cmd>bprevious<cr>") -- go to the previous buffer
 map("n", "q;", "q:") -- open the command-line window
 map("n", "<c-a>", "gg<s-v>G") -- select all
+map("n", "<m-j>", "<cmd>cnext<cr>")
+map("n", "<m-k>", "<cmd>cprev<cr>")
 
 -- wildmenu
 map("c", "<tab>", "pumvisible() ? '<c-n>' : '<c-r>=getcmdline()<cr>'", { expr = true })

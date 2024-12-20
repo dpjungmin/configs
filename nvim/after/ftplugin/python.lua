@@ -1,3 +1,3 @@
-vim.opt.wrap = false
-vim.opt.sidescroll = 5
-vim.opt.sidescrolloff = 2
+vim.opt_local.wrap = false
+vim.opt_local.sidescroll = 5
+vim.opt_local.sidescrolloff = 2

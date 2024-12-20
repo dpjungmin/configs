@@ -13,6 +13,7 @@ return {
       parser_install_dir = parser_install_dir,
       ensure_installed = "all",
       ignore_install = { "erlang", "java" },
+      auto_install = false,
       highlight = {
         enable = true,
         disable = {},

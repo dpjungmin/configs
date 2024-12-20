@@ -27,7 +27,7 @@ map("c", "<s-tab>", "pumvisible() ? '<c-p>' : '<left>'", { expr = true })
 
 -- session management
 map("n", "\\ss", ":mks! " .. constants.SESSION_DIR .. "/") -- save session
-map("n", "\\so", ":so! " .. constants.SESSION_DIR .. "/") -- open session
+map("n", "\\so", ":source " .. constants.SESSION_DIR .. "/") -- open session
 
 -- netrw
 map("n", "<leader>s", "<cmd>Explore<cr>") -- explore directory of current file
@@ -100,3 +100,11 @@ map("n", "<leader>tC", function()
     vim.opt.colorcolumn = "100"
   end
 end)
+-- open built-in terminal at the bottom
+map("n", "<leader>st", function()
+  vim.cmd.vnew()
+  vim.cmd.term()
+  vim.cmd.wincmd("J")
+  vim.api.nvim_win_set_height(0, 15)
+end)
+map("t", "<esc>", "<c-\\><c-n>") -- leave terminal-mode

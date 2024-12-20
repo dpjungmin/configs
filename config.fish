@@ -1,4 +1,5 @@
 # aliases
+alias S="source ~/.config/fish/config.fish"
 alias ..="cd .. && pwd"
 
 alias ls="eza --all"

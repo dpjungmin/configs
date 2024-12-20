@@ -123,19 +123,19 @@ return {
     vim.api.nvim_set_hl(0, "GitSignsCurrentLineBlame", { fg = "#2ecc71" })
 
     vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = "#46954a" })
-    vim.api.nvim_set_hl(0, "GitSignsStagedAdd", { fg = "#025106" })
+    vim.api.nvim_set_hl(0, "GitSignsStagedAdd", { fg = "#5a605d" })
     vim.api.nvim_set_hl(0, "GitSignsAddInline", { fg = "#ffffff", bg = "#46954a" })
     vim.api.nvim_set_hl(0, "GitSignsAddLnInline", { link = "GitSignsAddInline" })
     vim.api.nvim_set_hl(0, "GitSignsAddLnVirtLnInline", { link = "GitSignsAddInline" })
 
     vim.api.nvim_set_hl(0, "GitSignsChange", { fg = "#ae7c14" })
-    vim.api.nvim_set_hl(0, "GitSignsStagedChange", { fg = "#6a3900" })
+    vim.api.nvim_set_hl(0, "GitSignsStagedChange", { fg = "#5a605d" })
     vim.api.nvim_set_hl(0, "GitSignsChangeInline", { fg = "#ffffff", bg = "#ae7c14" })
     vim.api.nvim_set_hl(0, "GitSignsChangeLnInline", { link = "GitSignsChangeInline" })
     vim.api.nvim_set_hl(0, "GitSignsChangeLnVirtLnInline", { link = "GitSignsChangeInline" })
 
     vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = "#e5534b" })
-    vim.api.nvim_set_hl(0, "GitSignsStagedDelete", { fg = "#a11007" })
+    vim.api.nvim_set_hl(0, "GitSignsStagedDelete", { fg = "#5a605d" })
     vim.api.nvim_set_hl(0, "GitSignsDeleteInline", { fg = "#ffffff", bg = "#e5534b" })
     vim.api.nvim_set_hl(0, "GitSignsDeleteLnInline", { link = "GitSignsDeleteInline" })
     vim.api.nvim_set_hl(0, "GitSignsDeleteLnVirtLnInline", { link = "GitSignsDeleteInline" })

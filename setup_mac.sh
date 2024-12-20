@@ -34,6 +34,7 @@ setup_configurations() {
   [[ ! -f "$HOME/.gitconfig" ]] && ln -s $(pwd)/.gitconfig $HOME/.gitconfig
   [[ ! -f "$HOME/themes.gitconfig" ]] && ln -s $(pwd)/themes.gitconfig $HOME/themes.gitconfig
   [[ ! -f "$HOME/.ripgreprc" ]] && ln -s $(pwd)/.ripgreprc $HOME/.ripgreprc
+  [[ ! -f "$HOME/.aerospace.toml" ]] && ln -s $(pwd)/.aerospace.toml $HOME/.aerospace.toml
 
   rm -rf $HOME/.config/atuin
   ln -s $(pwd)/atuin $HOME/.config/atuin

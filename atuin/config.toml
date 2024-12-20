@@ -3,5 +3,5 @@ search_mode = "fuzzy"
 style = "compact"
 invert = true
 show_help = false
-keymap_mode = "vim-normal"
+keymap_mode = "vim-insert"
 prefers_reduced_motion = true

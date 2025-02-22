@@ -43,8 +43,8 @@
     diffFilter = delta --color-only
 
 [delta]
-    ; features = arctic-fox
+    features = arctic-fox
     ; features = calochortus-lyallii
     ; features = chameleon ; side-by-side
-    features = mellow-barbet ; side-by-side
+    ; features = mellow-barbet ; side-by-side
     true-color = always

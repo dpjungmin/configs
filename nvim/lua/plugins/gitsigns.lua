@@ -1,6 +1,7 @@
 local function on_attach(_)
   local gs = package.loaded.gitsigns
 
+  vim.keymap.set("n", "<leader>B", gs.blame, { desc = "git blame" })
   vim.keymap.set("n", "<leader>tgd", gs.toggle_deleted, { desc = "toggle git deleted" })
   vim.keymap.set("n", "<leader>tgs", gs.toggle_signs, { desc = "toggle git signs" })
   vim.keymap.set({ "o", "x" }, "ih", ":<c-u>Gitsigns select_hunk<cr>")

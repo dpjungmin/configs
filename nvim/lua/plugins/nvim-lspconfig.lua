@@ -87,7 +87,6 @@ return {
       vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single", focusable = true })
 
     -- keymaps
-    vim.keymap.set("n", "<leader>B", "<cmd>DapToggleBreakpoint<cr>", {})
     vim.keymap.set("n", "\\\\S", "<cmd>LspStart<cr>", {})
     vim.keymap.set("n", "\\\\s", "<cmd>LspStop<cr>", {})
     vim.keymap.set("n", "\\h", "<cmd>ClangdSwitchSourceHeader<cr>", {})

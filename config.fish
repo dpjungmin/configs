@@ -90,6 +90,11 @@ function nvim
     command nvim $argv
 end
 
+function v
+    set TERM wezterm
+    command nvim (fzf)
+end
+
 # machine specific configurations
 switch (uname)
     case Linux

@@ -7,6 +7,7 @@ tap "armmbed/formulae"
 tap "solidiquis/tap"
 
 brew "fish"
+brew "fzf"
 brew "rg"
 brew "fd"
 brew "tmux"
